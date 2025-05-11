@@ -50,6 +50,7 @@
                 </DataGrid.ColumnHeaderStyle>
 
                 <DataGrid.Columns>
+                    <DataGridTextColumn Header="IdOperadora" Binding="{Binding IdOperadora}" Visibility="Collapsed" Width="0"/>
                     <DataGridTextColumn Header="Nombre" Binding="{Binding NombreOperadora}" Width="2*"/>
                     <DataGridTextColumn Header="Sitio Web" Binding="{Binding SitioWeb}" Width="2*"/>
                     <DataGridTextColumn Header="Dirección" Binding="{Binding Direccion}" Width="3*"/>
@@ -142,7 +143,7 @@
                 Background="#dc3545" 
                 Foreground="White" 
                 FontSize="22" 
-                BorderBrush="#dc3545" 
+                BorderBrush="#dc3545" Click="BtnEliminar_Click" 
                 >
                 <Button.Template>
                     <ControlTemplate TargetType="Button">

@@ -4,7 +4,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using MySql.Data.MySqlClient;
-
 namespace Chiapas.ViajeroAA.Conexion
 {
     public class RepositorioAdministrador
