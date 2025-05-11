@@ -39,5 +39,21 @@ namespace Pagina_Principal
             this.Close();
         }
 
+        private void BtnGestion(Object sender, RoutedEventArgs e)
+        {
+            Gestion_Operadora VentanaGes = new Gestion_Operadora();
+            VentanaGes.Show();
+
+            this.Close();
+        }
+
+        private void BtnHome(Object sender, RoutedEventArgs e)
+        {
+            Home VentanaHome = new Home();
+            VentanaHome.Show();
+
+            this.Close();
+        }
+
     }
 }

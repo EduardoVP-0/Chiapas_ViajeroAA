@@ -13,7 +13,7 @@
             <Image Source="img/imagen.png" Stretch="Uniform" Margin="-81,0,922,0" />
 
             <Label Content="REGISTROS DE DATOS" HorizontalAlignment="Left" Margin="721,42,0,0" 
-                   VerticalAlignment="Top" Width="378" FontFamily="Poppins" FontSize="26" FontWeight="Bold" />
+                   VerticalAlignment="Top" Width="378" FontFamily="Poppins" FontSize="26" FontWeight="Bold"/>
 
             <Button Content="1" Background="#FF505D89" Foreground="White" BorderBrush="#FF505D89" FontSize="18" 
                     FontWeight="Bold" HorizontalAlignment="Left" Margin="414,125,0,0" VerticalAlignment="Top" 

@@ -1,0 +1,93 @@
+﻿<Window x:Class="Pagina_Principal.Home"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Pagina_Principal"
+        mc:Ignorable="d"
+        Title="Home" WindowState="Maximized" 
+        WindowStartupLocation="CenterScreen">
+
+    <Viewbox Stretch="Fill">
+
+        <Grid Width="1355" Height="710">
+
+            <!-- FONDO DE LA HOJA -->
+            <Grid.Background>
+                <ImageBrush ImageSource="img/fondoHome.png" Stretch="Fill" RenderOptions.BitmapScalingMode="HighQuality"/>
+            </Grid.Background>
+
+            <!--LOGO DE CHIAPAS VIAJERO-->
+            <Image Source="img/LogoHome.png" Margin="-35,10,1077,595"/>
+
+            <!--MENU Y PERFIL-->
+
+            <Label Content="Registro" HorizontalAlignment="Left" Margin="344,49,0,0" 
+                   VerticalAlignment="Top" Width="119" FontFamily="Poppins" FontSize="26" FontWeight="Bold" RenderTransformOrigin="-0.003,1.393"/>
+
+            <Label Content="Usuarios" HorizontalAlignment="Left" Margin="510,49,0,0" 
+                   VerticalAlignment="Top" Width="119" FontFamily="Poppins" FontSize="26" FontWeight="Bold" RenderTransformOrigin="-0.003,1.393"/>
+
+            <Label Content="Estadísticas" HorizontalAlignment="Left" Margin="692,49,0,0" 
+                   VerticalAlignment="Top" Width="162" FontFamily="Poppins" FontSize="26" FontWeight="Bold" RenderTransformOrigin="-0.003,1.393"/>
+
+            <!--PERFIL-->
+            <Border CornerRadius="16" Background="#80E7E6E6" Margin="1034,37,141,615">
+                <Button Background="Transparent" BorderThickness="0" Padding="10" HorizontalContentAlignment="Left"
+                        Cursor="Hand">
+                    <Button.Template>
+                        <ControlTemplate TargetType="Button">
+                            <ContentPresenter/>
+                        </ControlTemplate>
+                    </Button.Template>
+
+                    <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                        <!-- Imagen del perfil -->
+                        <Image Source="Administrador1.png" Width="53" Height="39" Margin="0,0,8,0"/>
+
+                        <!-- Texto -->
+                        <TextBlock Text=" Perfil " FontSize="22" FontFamily="Poppins" FontWeight="DemiBold" Foreground="Black" VerticalAlignment="Center" Margin="0,0,8,0"/>
+                        <TextBlock Text="▼" FontSize="16" FontFamily="Poppins" Foreground="Black" VerticalAlignment="Center"/>
+                    </StackPanel>
+                </Button>
+            </Border>
+
+
+            <!--Salir del home-->
+            <Button Background="Transparent" BorderThickness="0" Cursor="Hand" Margin="1245,49,58,627">
+                <Button.Template>
+                    <ControlTemplate TargetType="Button">
+                        <ContentPresenter/>
+                    </ControlTemplate>
+                </Button.Template>
+                <Image Source="BotonA.png" Stretch="Uniform"/>
+            </Button>
+            
+            <!--Sección de Ranking-->
+            <Border CornerRadius="22" BorderBrush="#FFFFFF" BorderThickness="0" Background="#30E7E6E6" Margin="10,151,892,216" ClipToBounds="True">
+                <Image Source="Ranking.png" Stretch="Fill" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+            </Border>
+            
+            <!--Comentarios Destacados-->
+            <Border CornerRadius="22" BorderBrush="#FFFFFF" BorderThickness="0" Background="#30E7E6E6" Margin="10,511,892,10" ClipToBounds="True">
+                <Image Source="Comentarios.png" Stretch="Fill" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+            </Border>
+            
+            <!--CARRUSEL DE IMAGENES-->
+            <Grid Name="MainGrid" Margin="492,151,35,189">
+                <Image Name="CarruselImagen"
+               Stretch="Fill"
+               />
+            </Grid>
+
+
+
+
+
+
+
+        </Grid>
+
+    </Viewbox>
+
+</Window>
