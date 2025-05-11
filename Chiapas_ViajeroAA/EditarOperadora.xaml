@@ -1,11 +1,13 @@
-﻿<Window x:Class="Pagina_Principal.Registros_Datos"
+﻿<Window x:Class="Pagina_Principal.EditarOperadora"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="Registros_Datos" 
-        WindowState="Maximized" 
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Pagina_Principal"
+        mc:Ignorable="d"
+        Title="EditarOperadora" WindowState="Maximized" 
         WindowStartupLocation="CenterScreen"
         Background="White">
-
     <Viewbox Stretch="Fill">
         <Grid Width="1355" Height="710">
             <!-- Aquí diseñas como si fuera fijo, y Viewbox lo escala -->
@@ -44,18 +46,7 @@
                 <Image Name="ImgOperadora"/>
             </Border>
 
-            <Button Name="BtnAgregarImagen" Content="+" Background="#FF505D89" Foreground="White" BorderBrush="#FF505D89" FontSize="36" FontWeight="Bold" Margin="631,339,681,335" Click="btnImagen_Click">
-                <Button.Template>
-                    <ControlTemplate TargetType="Button">
-                        <Border Background="{TemplateBinding Background}"
-                    BorderBrush="{TemplateBinding BorderBrush}"
-                    BorderThickness="0"
-                    CornerRadius="40">
-                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" Height="47" Margin="10,-13,10,-3" Width="25"/>
-                        </Border>
-                    </ControlTemplate>
-                </Button.Template>
-            </Button>
+            
 
 
 
@@ -103,7 +94,7 @@
                      AcceptsReturn="True"
                      TextWrapping="Wrap"/>
             </Border>
-            
+
             <!--Direccion-->
             <Label Content="Dirección" HorizontalAlignment="Left" Margin="755,368,0,0" 
                    VerticalAlignment="Top" Width="226" FontFamily="Poppins" FontSize="18" />
@@ -119,7 +110,7 @@
                      AcceptsReturn="True"
                      TextWrapping="Wrap"/>
             </Border>
-            
+
             <!--TELEFONO-->
             <Label Content="Teléfono" HorizontalAlignment="Left" Margin="755,533,0,0" 
                    VerticalAlignment="Top" Width="226" FontFamily="Poppins" FontSize="18" />
@@ -130,10 +121,10 @@
                       FontFamily="Poppins"
                       BorderBrush="#90FFFFFF"
                       BorderThickness="1"
-                      Foreground="Black" >   
-                        <ComboBoxItem Content="+98" />
-                        <ComboBoxItem Content="+90" />
-                        <ComboBoxItem Content="+12" />
+                      Foreground="Black" >
+                    <ComboBoxItem Content="+98" />
+                    <ComboBoxItem Content="+90" />
+                    <ComboBoxItem Content="+12" />
                 </ComboBox>
             </Border>
 
@@ -212,29 +203,10 @@
                      Padding="23,2"
                      Foreground="Black"/>
             </Border>
-            
-            
+
+
             <!--BOTON PARA GUARDAR-->
-            <Button x:Name="Btn_Guardar" Content="G u a r d a r" 
-                FontFamily="Poppins"  
-                Margin="1058,580,22,85"  
-                Background="#505D89" 
-                Foreground="White" 
-                FontSize="18" 
-                BorderBrush="#505D89" Click="Button_Click" 
-                >
-                <Button.Template>
-                    <ControlTemplate TargetType="Button">
-                        <Border Background="{TemplateBinding Background}" 
-                    BorderBrush="{TemplateBinding BorderBrush}" 
-                    BorderThickness="1" 
-                    CornerRadius="16">
-                            <ContentPresenter HorizontalAlignment="Center" 
-                                  VerticalAlignment="Center" />
-                        </Border>
-                    </ControlTemplate>
-                </Button.Template>
-            </Button>
+            
         </Grid>
     </Viewbox>
 </Window>

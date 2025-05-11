@@ -22,7 +22,7 @@ namespace Chiapas.ViajeroAA.Conexion
 
             using (var conn = _conexion.ObtenerConexion())
             {
-                string query = "SELECT nombre_operadora, sitio_web, direccion, representante, email FROM operadora";
+                string query = "SELECT id, nombre_operadora, sitio_web, direccion, representante, email FROM operadora";
 
                 using (var cmd = new MySqlCommand(query, conn))
                 using (var reader = cmd.ExecuteReader())
@@ -31,12 +31,15 @@ namespace Chiapas.ViajeroAA.Conexion
                     {
                         lista.Add(new VistaOperadora
                         {
+                            id = reader.GetInt32("id"),  // <-- Aquí se obtiene el ID
                             NombreOperadora = reader.GetString("nombre_operadora"),
                             SitioWeb = reader.GetString("sitio_web"),
                             Direccion = reader.GetString("direccion"),
                             Representante = reader.GetString("representante"),
                             Email = reader.GetString("email")
                         });
+
+
                     }
                 }
             }

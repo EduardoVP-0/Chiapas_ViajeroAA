@@ -55,5 +55,27 @@ namespace Pagina_Principal
 
             this.Close();
         }
+
+        //CODIGO PARA LA VENTANA DE EDITAR
+        private void BtnEditar(object sender, RoutedEventArgs e)
+        {
+            var operadoraSeleccionada = (VistaOperadora)miDataGrid.SelectedItem;
+
+            if (operadoraSeleccionada != null)
+            {
+                // Abrir la ventana EditarOperadora y pasarle el ID
+                EditarOperadora ventanaEditar = new EditarOperadora(operadoraSeleccionada.id);
+                ventanaEditar.Show();
+
+                this.Close(); // Cerrar la ventana actual si lo deseas
+            }
+            else
+            {
+                MessageBox.Show("Por favor, seleccione una operadora primero.");
+            }
+        }
+
+
+
     }
 }

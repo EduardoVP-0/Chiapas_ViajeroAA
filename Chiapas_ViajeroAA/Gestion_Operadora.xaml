@@ -18,23 +18,25 @@
             
             
             <!--DATAGRID PARA MOSTRAR DATOS-->
-            <DataGrid x:Name="miDataGrid"
-                      IsReadOnly="True"
-    AutoGenerateColumns="False"
-    HeadersVisibility="Column"
-    GridLinesVisibility="All"
-    Background="White"
-    BorderBrush="#8D98A7"
-    BorderThickness="1"
-    Grid.Row="0"
-    Margin="55,166,55,202"
-    FontFamily="Poppins"
-    FontSize="14"
-    RowBackground="White"
-    HorizontalGridLinesBrush="#8D98A7"
-    VerticalGridLinesBrush="#8D98A7"
-    ColumnHeaderHeight="40"
-    RowHeight="40">
+            <DataGrid x:Name="miDataGrid" 
+          IsReadOnly="True" 
+          AutoGenerateColumns="False" 
+          HeadersVisibility="Column" 
+          GridLinesVisibility="All" 
+          Background="White" 
+          BorderBrush="#8D98A7" 
+          BorderThickness="1" 
+          Grid.Row="0" 
+          Margin="55,166,55,202" 
+          FontFamily="Poppins" 
+          FontSize="14" 
+          RowBackground="White" 
+          HorizontalGridLinesBrush="#8D98A7" 
+          VerticalGridLinesBrush="#8D98A7" 
+          ColumnHeaderHeight="40" 
+          RowHeight="40" 
+          SelectionMode="Single" 
+          SelectionUnit="FullRow">
 
                 <DataGrid.ColumnHeaderStyle>
                     <Style TargetType="DataGridColumnHeader">
@@ -48,6 +50,21 @@
                         <Setter Property="FontSize" Value="14"/>
                     </Style>
                 </DataGrid.ColumnHeaderStyle>
+
+                <DataGrid.Resources>
+                    <!-- Estilo para la fila seleccionada -->
+                    <Style TargetType="DataGridRow">
+                        <Style.Triggers>
+                            <!-- Cambio de color cuando la fila está seleccionada -->
+                            <Trigger Property="IsSelected" Value="True">
+                                <Setter Property="Background" Value="#B6D0E0"/>
+                                <!-- Color de fondo de la fila seleccionada -->
+                                <Setter Property="Foreground" Value="White"/>
+                                <!-- Color de texto cuando está seleccionada -->
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </DataGrid.Resources>
 
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="Nombre" Binding="{Binding NombreOperadora}" Width="2*"/>
@@ -87,6 +104,7 @@
 
 
 
+
             <!--BOTON PARA AGREGAR OPERADORA-->
             <Button Name="BtnAgregar"
                 Content="Agregar" 
@@ -112,15 +130,7 @@
             </Button>
 
             <!--BOTON PARA EDITAR OPERADORA-->
-            <Button Name="BtnEditar"
-                Content="Editar" 
-                FontFamily="Poppins"  
-                Margin="384,574,696,87"  
-                Background="#ffc107" 
-                Foreground="White" 
-                FontSize="22" 
-                BorderBrush="#ffc107" 
-                >
+            <Button Name="BtnEditarr" Content="Editar" FontFamily="Poppins"  Margin="384,574,696,87" Background="#ffc107" Foreground="White" FontSize="22" BorderBrush="#ffc107" Click="BtnEditar">
                 <Button.Template>
                     <ControlTemplate TargetType="Button">
                         <Border Background="{TemplateBinding Background}" 
@@ -156,9 +166,6 @@
                     </ControlTemplate>
                 </Button.Template>
             </Button>
-
-
-
         </Grid>
     </Viewbox>
 </Window>
