@@ -151,9 +151,9 @@
                       BorderBrush="#90FFFFFF"
                       BorderThickness="1"
                       Foreground="Black" >
-                    <ComboBoxItem Content="+98" />
-                    <ComboBoxItem Content="+90" />
-                    <ComboBoxItem Content="+12" />
+                    <ComboBoxItem Content="967" />
+                    <ComboBoxItem Content="961" />
+                    <ComboBoxItem Content="916" />
                 </ComboBox>
             </Border>
 
