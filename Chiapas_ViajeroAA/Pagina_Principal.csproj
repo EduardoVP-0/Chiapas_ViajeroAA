@@ -146,6 +146,12 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Gestion_Operadora.xaml.cs">
+      <DependentUpon>Gestion_Operadora.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Home.xaml.cs">
+      <DependentUpon>Home.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
@@ -158,6 +164,14 @@
       <DependentUpon>Window1.xaml</DependentUpon>
     </Compile>
     <Page Include="CrearCuenta.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Gestion_Operadora.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Home.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -230,6 +244,24 @@
       <Project>{65d3dccd-4206-48b2-a47d-7aa755591b58}</Project>
       <Name>Chiapas.ViajeroAA.Logica</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="img\FondoHome.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="img\LogoHome.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Administrador1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="BotonA.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Ranking.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Comentarios.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

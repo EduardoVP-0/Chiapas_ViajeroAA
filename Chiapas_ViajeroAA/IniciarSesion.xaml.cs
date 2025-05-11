@@ -75,6 +75,8 @@ namespace Pagina_Principal
             this.Close();
         }
 
+        //VALIDAR CORREO Y CONTRASEÑA
+
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             string email = txtEmail.Text;
