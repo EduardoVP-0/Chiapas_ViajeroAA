@@ -83,13 +83,24 @@ namespace Pagina_Principal
             if (openFileDialog.ShowDialog() == true)
             {
                 string rutaOrigen = openFileDialog.FileName;
-                nombreImagenSeleccionada = System.IO.Path.GetFileName(rutaOrigen);
-                string rutaDestino = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Fotos", nombreImagenSeleccionada);
+
+                // Generamos un nombre único para la imagen utilizando GUID y la extensión original
+                string extension = System.IO.Path.GetExtension(rutaOrigen); // Obtenemos la extensión del archivo (ejemplo .jpg)
+                string nombreUnicoImagen = Guid.NewGuid().ToString() + extension; // Generamos el nombre único
+
+                // Definimos la ruta de destino donde guardaremos la imagen con el nombre único
+                string rutaDestino = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Fotos", nombreUnicoImagen);
 
                 try
                 {
+                    // Copiamos la imagen a la nueva ruta con el nuevo nombre
                     File.Copy(rutaOrigen, rutaDestino, true); // Sobrescribe si ya existe
+
+                    // Actualizamos la imagen que se muestra en la interfaz
                     ImgOperadora.Source = new BitmapImage(new Uri(rutaDestino));
+
+                    // Guardamos el nombre único de la imagen seleccionada (para usarlo al actualizar la operadora en la base de datos)
+                    nombreImagenSeleccionada = nombreUnicoImagen;
                 }
                 catch (Exception ex)
                 {
@@ -98,9 +109,9 @@ namespace Pagina_Principal
             }
         }
 
-
-        //ACTUALIZAR LA DIRECCION DE LA IMAGEN
+        // Variable global para almacenar el nombre único de la imagen seleccionada
         private string nombreImagenSeleccionada = null;
+
 
 
         //BOTON PARA HACER EL UPDATE DE LOS REGISTROS
