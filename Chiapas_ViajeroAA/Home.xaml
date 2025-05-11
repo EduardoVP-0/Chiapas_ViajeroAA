@@ -29,21 +29,75 @@
             <Image Source="img/LogoHome.png" Margin="-35,5,1077,600"/>
 
             <!--MENU Y PERFIL-->
-                
-            <Button Name="BtnRegistro" Content="Registro" HorizontalAlignment="Left" Margin="344,49,0,0" VerticalAlignment="Top"
-                    Width="119" FontFamily="Poppins" FontSize="26" FontWeight="Bold" Background="Transparent" BorderThickness="0"/>
+
+            <Button Name="BtnRegistro" Content="Registro" HorizontalAlignment="Left" Margin="344,48,0,0" VerticalAlignment="Top"
+                Width="119" FontFamily="Poppins" FontSize="26" FontWeight="Bold" Foreground="Black" Background="Transparent" BorderThickness="0">
+                <Button.Template>
+                    <ControlTemplate TargetType="Button">
+                        <Border x:Name="border" Background="Transparent" CornerRadius="5" BorderThickness="0">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="border" Property="Background" Value="#50000000"/>
+                                <!-- gris oscuro opaco -->
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter TargetName="border" Property="Background" Value="#AA000000"/>
+                                <!-- un poco más oscuro al hacer clic -->
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
 
 
-            <Label Content="Usuarios" HorizontalAlignment="Left" Margin="510,49,0,0" 
-                   VerticalAlignment="Top" Width="119" FontFamily="Poppins" FontSize="26" FontWeight="Bold" RenderTransformOrigin="-0.003,1.393"/>
 
-            <Label Content="Estadísticas" HorizontalAlignment="Left" Margin="692,49,0,0" 
-                   VerticalAlignment="Top" Width="162" FontFamily="Poppins" FontSize="26" FontWeight="Bold" RenderTransformOrigin="-0.003,1.393"/>
+            <Button Content="Usuarios" HorizontalAlignment="Left" Margin="510,48,0,0" VerticalAlignment="Top" Width="119" FontFamily="Poppins" FontSize="26" FontWeight="Bold" Foreground="Black" Background="Transparent" BorderThickness="0">
+                <Button.Template>
+                    <ControlTemplate TargetType="Button">
+                        <Border x:Name="border" Background="Transparent" CornerRadius="4" BorderThickness="0">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="border" Property="Background" Value="#99000000"/>
+                                <!-- gris oscuro opaco -->
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter TargetName="border" Property="Background" Value="#AA000000"/>
+                                <!-- más oscuro al presionar -->
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+
+
+            <Button Content="Estadísticas" HorizontalAlignment="Left" Margin="693,48,0,0" VerticalAlignment="Top" Width="162" FontFamily="Poppins" FontSize="26" FontWeight="Bold" Foreground="Black" Background="Transparent" BorderThickness="0">
+                <Button.Template>
+                    <ControlTemplate TargetType="Button">
+                        <Border x:Name="border" Background="Transparent" CornerRadius="4" BorderThickness="0">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="border" Property="Background" Value="#99000000"/>
+                                <!-- gris oscuro opaco -->
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter TargetName="border" Property="Background" Value="#AA000000"/>
+                                <!-- más oscuro al presionar -->
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+
 
             <!--PERFIL-->
             <Border CornerRadius="16" Background="#80E7E6E6" Margin="1034,37,141,615">
-                <Button Background="Transparent" BorderThickness="0" Padding="10" HorizontalContentAlignment="Left"
-                        Cursor="Hand">
+                <Button Background="Transparent" BorderThickness="0" Padding="10" HorizontalContentAlignment="Left" Cursor="Hand">
                     <Button.Template>
                         <ControlTemplate TargetType="Button">
                             <ContentPresenter/>
@@ -97,22 +151,11 @@
             </Border>
             
             <!--Ver todas las operadoras-->
-            <Button Content="Ver todas" 
-                FontFamily="Poppins"  
-                Margin="1190,521,34,160"  
-                Background="#505D89" 
-                Foreground="White" 
-                FontSize="16" 
-                BorderBrush="#505D89" 
-                >
+            <Button Content="Ver todas"  FontFamily="Poppins" Margin="1190,521,34,160" Background="#505D89" Foreground="White"   FontSize="16" BorderBrush="#505D89">
                 <Button.Template>
                     <ControlTemplate TargetType="Button">
-                        <Border Background="{TemplateBinding Background}" 
-                    BorderBrush="{TemplateBinding BorderBrush}" 
-                    BorderThickness="1" 
-                    CornerRadius="16">
-                            <ContentPresenter HorizontalAlignment="Center" 
-                                  VerticalAlignment="Center" />
+                        <Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}"  BorderThickness="1" CornerRadius="16">
+                            <ContentPresenter HorizontalAlignment="Center"  VerticalAlignment="Center" />
                         </Border>
                     </ControlTemplate>
                 </Button.Template>
