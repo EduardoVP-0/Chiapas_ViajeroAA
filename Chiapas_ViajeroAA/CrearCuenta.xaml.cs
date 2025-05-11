@@ -1,19 +1,27 @@
 ﻿using System;
+using System.IO;
 using System.Windows;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using Chiapas.ViajeroAA.Conexion;
+using Chiapas.ViajeroAA.Logica;
 
 namespace Pagina_Principal
 {
     /// <summary>
     /// Lógica de interacción para CrearCuenta.xaml
     /// </summary>
+    
+
     public partial class CrearCuenta : Window
     {
+        private AdministradorServicio _administradorServicio;
+        private string rutaImagenSeleccionada = string.Empty;
         public CrearCuenta()
         {
             InitializeComponent();
+            _administradorServicio = new AdministradorServicio(new Administrador());
         }
 
 
@@ -102,9 +110,60 @@ namespace Pagina_Principal
                 // Oculta el Border al mostrar la imagen
                 borderImagen.Background = Brushes.Transparent;
                 borderImagen.BorderBrush = Brushes.Transparent;
+                ImgEmpleado.Source = new BitmapImage(new Uri(openFileDialog.FileName));
+                rutaImagenSeleccionada = openFileDialog.FileName; // << GUARDAMOS AQUÍ
+            }
+            
+
+  
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            string usuario = txtUsuario.Text;
+            string email = txtEmail.Text;
+            string contraseña = txtPassword.Password;
+            string fotoPath = string.Empty;
+            if (string.IsNullOrEmpty(usuario) || string.IsNullOrEmpty(email) || string.IsNullOrEmpty(contraseña))
+            {
+                MessageBox.Show("Por favor, complete todos los campos.");
+                return;
+            }
+
+            // Verificar que la imagen esté seleccionada
+            if (ImgEmpleado.Source != null)
+            {
+                fotoPath = GuardarImagen();
+            }
+            else
+            {
+                MessageBox.Show("Por favor, seleccione una foto.");
+                return;
+            }
+
+            try
+            {
+                // Crear cuenta utilizando el servicio de lógica
+                _administradorServicio.CrearCuenta(usuario, email, contraseña, fotoPath);
+                MessageBox.Show("Cuenta creada exitosamente.");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error: {ex.Message}");
             }
         }
 
+        private string GuardarImagen()
+        {
+            string carpetaFotos = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Fotos");
+            Directory.CreateDirectory(carpetaFotos);
 
+            string nombreImagen = Guid.NewGuid().ToString() + Path.GetExtension(rutaImagenSeleccionada);
+            string destino = Path.Combine(carpetaFotos, nombreImagen);
+
+            File.Copy(rutaImagenSeleccionada, destino, true); // 'true' para sobrescribir si existe
+
+            return nombreImagen;
+        }
     }
-}
+    }

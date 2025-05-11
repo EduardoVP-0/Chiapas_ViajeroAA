@@ -100,13 +100,13 @@
         </Grid>
 
         <!-- BOTON DE CREAR CUENTA-->
-        <Button Content="Crear Cuenta" 
+        <Button x:Name="BtnCrearCuenta" Content="Crear Cuenta" 
                 FontFamily="Poppins"  
                 Margin="42,443,42,60"  
                 Background="#FF505D89" 
                 Foreground="White" 
                 FontSize="18" 
-                BorderBrush="#FF505D89" 
+                BorderBrush="#FF505D89" Click="Button_Click" 
                 >
             <Button.Template>
                 <ControlTemplate TargetType="Button">

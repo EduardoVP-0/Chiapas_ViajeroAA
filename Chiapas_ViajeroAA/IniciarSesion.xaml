@@ -68,13 +68,13 @@
         </Grid>
 
         <!--BOPON PARA HACER EL SUBMIT-->
-        <Button Content="Iniciar sesión" 
+        <Button x:Name="Btn_IniciarSesion" Content="Iniciar sesión" 
                 FontFamily="Poppins"  
                 Margin="38,371,46,132"  
                 Background="#FF505D89" 
                 Foreground="White" 
                 FontSize="18" 
-                BorderBrush="#FF505D89" 
+                BorderBrush="#FF505D89" Click="Button_Click" 
                 >
             <Button.Template>
                 <ControlTemplate TargetType="Button">
