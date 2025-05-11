@@ -279,5 +279,8 @@
   <ItemGroup>
     <Resource Include="Operadoras.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Operadoras\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
