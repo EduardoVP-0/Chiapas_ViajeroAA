@@ -27,6 +27,7 @@ namespace Pagina_Principal
             InitializeComponent();
             _servicio = new OperadoraVistaServicio();
             CargarDatos();
+
         }
         private void CargarDatos()
         {
@@ -77,5 +78,32 @@ namespace Pagina_Principal
 
 
 
+
+        private void BtnEliminar_Click(object sender, RoutedEventArgs e)
+        {
+            if (miDataGrid.SelectedItem == null)
+            {
+                MessageBox.Show("Selecciona una fila para eliminar.", "Advertencia", MessageBoxButton.OK, MessageBoxImage.Warning);
+                return;
+            }
+
+            dynamic filaSeleccionada = miDataGrid.SelectedItem;
+            int id = filaSeleccionada.IdOperadora; // Ajusta según el nombre exacto del campo
+
+            MessageBoxResult resultado = MessageBox.Show("¿Estás seguro de eliminar esta operadora?", "Confirmar eliminación", MessageBoxButton.YesNo, MessageBoxImage.Question);
+            if (resultado == MessageBoxResult.Yes)
+            {
+                bool exito = operadoraEliminarLogica.Eliminar(id);
+                if (exito)
+                {
+                    MessageBox.Show("Operadora eliminada correctamente.", "Éxito", MessageBoxButton.OK, MessageBoxImage.Information);
+                    CargarDatos(); // Refresca el DataGrid
+                }
+                else
+                {
+                    MessageBox.Show("No se pudo eliminar la operadora.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+            }
+        }
     }
 }

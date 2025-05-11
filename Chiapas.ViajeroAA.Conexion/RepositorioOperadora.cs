@@ -32,6 +32,7 @@ namespace Chiapas.ViajeroAA.Conexion
                         lista.Add(new VistaOperadora
                         {
                             id = reader.GetInt32("id"),  // <-- Aquí se obtiene el ID
+                            IdOperadora = reader.GetInt32("id"),
                             NombreOperadora = reader.GetString("nombre_operadora"),
                             SitioWeb = reader.GetString("sitio_web"),
                             Direccion = reader.GetString("direccion"),
