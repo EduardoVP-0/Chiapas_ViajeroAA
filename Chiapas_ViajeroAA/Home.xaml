@@ -7,7 +7,15 @@
         mc:Ignorable="d"
         Title="Home" WindowState="Maximized" 
         WindowStartupLocation="CenterScreen">
-
+    
+    <Window.Resources>
+        <!-- Animación de transición fade in/out -->
+        <Storyboard x:Key="FadeStoryboard">
+            <DoubleAnimation Storyboard.TargetProperty="Opacity"
+                         From="0" To="1" Duration="0:0:1" />
+        </Storyboard>
+    </Window.Resources>
+    
     <Viewbox Stretch="Fill">
 
         <Grid Width="1355" Height="710">
@@ -18,12 +26,13 @@
             </Grid.Background>
 
             <!--LOGO DE CHIAPAS VIAJERO-->
-            <Image Source="img/LogoHome.png" Margin="-35,10,1077,595"/>
+            <Image Source="img/LogoHome.png" Margin="-35,5,1077,600"/>
 
             <!--MENU Y PERFIL-->
+                
+            <Button Name="BtnRegistro" Content="Registro" HorizontalAlignment="Left" Margin="344,49,0,0" VerticalAlignment="Top"
+                    Width="119" FontFamily="Poppins" FontSize="26" FontWeight="Bold" Background="Transparent" BorderThickness="0"/>
 
-            <Label Content="Registro" HorizontalAlignment="Left" Margin="344,49,0,0" 
-                   VerticalAlignment="Top" Width="119" FontFamily="Poppins" FontSize="26" FontWeight="Bold" RenderTransformOrigin="-0.003,1.393"/>
 
             <Label Content="Usuarios" HorizontalAlignment="Left" Margin="510,49,0,0" 
                    VerticalAlignment="Top" Width="119" FontFamily="Poppins" FontSize="26" FontWeight="Bold" RenderTransformOrigin="-0.003,1.393"/>
@@ -51,10 +60,12 @@
                     </StackPanel>
                 </Button>
             </Border>
+            
+            <!--Boton para ver las operadoras-->
 
 
             <!--Salir del home-->
-            <Button Background="Transparent" BorderThickness="0" Cursor="Hand" Margin="1245,49,58,627">
+            <Button Background="Transparent" BorderThickness="0" Cursor="Hand" Margin="1245,49,58,627" Click="BtnSalir">
                 <Button.Template>
                     <ControlTemplate TargetType="Button">
                         <ContentPresenter/>
@@ -64,27 +75,48 @@
             </Button>
             
             <!--Sección de Ranking-->
-            <Border CornerRadius="22" BorderBrush="#FFFFFF" BorderThickness="0" Background="#30E7E6E6" Margin="10,151,892,216" ClipToBounds="True">
+            <Border CornerRadius="22" BorderBrush="#FFFFFF" BorderThickness="0" Background="#30E7E6E6" Margin="10,124,892,227" ClipToBounds="True">
                 <Image Source="Ranking.png" Stretch="Fill" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
             </Border>
             
             <!--Comentarios Destacados-->
-            <Border CornerRadius="22" BorderBrush="#FFFFFF" BorderThickness="0" Background="#30E7E6E6" Margin="10,511,892,10" ClipToBounds="True">
+            <Border CornerRadius="22" BorderBrush="#FFFFFF" BorderThickness="0" Background="#30E7E6E6" Margin="10,497,892,10" ClipToBounds="True">
                 <Image Source="Comentarios.png" Stretch="Fill" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
             </Border>
             
             <!--CARRUSEL DE IMAGENES-->
-            <Grid Name="MainGrid" Margin="492,151,35,189">
-                <Image Name="CarruselImagen"
-               Stretch="Fill"
-               />
+            <Grid ClipToBounds="True" Margin="510,124,10,211">
+                <Border BorderBrush="#FFFFFF" BorderThickness="0" CornerRadius="15" Background="#30E7E6E6">
+                    <Image Name="CarruselImage" Stretch="Fill" Opacity="0"/>
+                </Border>
             </Grid>
-
-
-
-
-
-
+            
+            <!--SECCIÓN DE VER TODAS LAS OPERADORAS-->
+            <Border BorderBrush="#FFFFFF" BorderThickness="0" CornerRadius="15" Background="#00E7E6E6" Margin="510,518,10,10">
+                <Image Source="Operadoras.png" Stretch="Fill" Opacity="1" Margin="0,0,10,10"/>
+            </Border>
+            
+            <!--Ver todas las operadoras-->
+            <Button Content="Ver todas" 
+                FontFamily="Poppins"  
+                Margin="1190,521,34,160"  
+                Background="#505D89" 
+                Foreground="White" 
+                FontSize="16" 
+                BorderBrush="#505D89" 
+                >
+                <Button.Template>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}" 
+                    BorderBrush="{TemplateBinding BorderBrush}" 
+                    BorderThickness="1" 
+                    CornerRadius="16">
+                            <ContentPresenter HorizontalAlignment="Center" 
+                                  VerticalAlignment="Center" />
+                        </Border>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
 
         </Grid>
 

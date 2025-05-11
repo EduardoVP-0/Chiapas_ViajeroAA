@@ -263,5 +263,14 @@
   <ItemGroup>
     <Resource Include="Comentarios.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Banner1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Banner2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Operadoras.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
