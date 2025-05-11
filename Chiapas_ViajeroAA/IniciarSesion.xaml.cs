@@ -16,9 +16,9 @@ namespace Pagina_Principal
 
 
         //PARA EL TXTEMAIL DE EMAIL
-        private void txtEmail_GotFocus(object sender, RoutedEventArgs e)
+        private void txtEmail_MouseEnter(object sender, MouseEventArgs e)
         {
-            // Si el texto es "email", lo borra y cambia el color del texto a negro
+            // Si el texto aún es "email", lo borra
             if (txtEmail.Text == "email")
             {
                 txtEmail.Text = "";
@@ -26,9 +26,9 @@ namespace Pagina_Principal
             }
         }
 
-        private void txtEmail_LostFocus(object sender, RoutedEventArgs e)
+        private void txtEmail_MouseLeave(object sender, MouseEventArgs e)
         {
-            // Si el campo está vacío, muestra el texto "email"
+            // Si el campo está vacío, vuelve a poner "email"
             if (string.IsNullOrWhiteSpace(txtEmail.Text))
             {
                 txtEmail.Text = "email";
@@ -37,25 +37,31 @@ namespace Pagina_Principal
         }
 
 
+
+
         //PARA EL TXTCONTRASEÑA DE CONTRASEÑA
         private void txtPassword_PasswordChanged(object sender, RoutedEventArgs e)
         {
+            // Oculta el placeholder si hay texto
             passwordPlaceholder.Visibility = string.IsNullOrEmpty(txtPassword.Password)
                 ? Visibility.Visible
                 : Visibility.Collapsed;
         }
 
-        private void txtPassword_GotFocus(object sender, RoutedEventArgs e)
+        private void txtPassword_MouseEnter(object sender, MouseEventArgs e)
         {
+            // Si no hay texto, oculta placeholder
             if (string.IsNullOrEmpty(txtPassword.Password))
                 passwordPlaceholder.Visibility = Visibility.Collapsed;
         }
 
-        private void txtPassword_LostFocus(object sender, RoutedEventArgs e)
+        private void txtPassword_MouseLeave(object sender, MouseEventArgs e)
         {
+            // Si sigue vacío al salir el cursor, vuelve a mostrar placeholder
             if (string.IsNullOrEmpty(txtPassword.Password))
                 passwordPlaceholder.Visibility = Visibility.Visible;
         }
+
 
         //PARA REGRESAR A LA PANTALLA PRINCIAPL
         private void btn_Login(object sender, MouseButtonEventArgs e)
