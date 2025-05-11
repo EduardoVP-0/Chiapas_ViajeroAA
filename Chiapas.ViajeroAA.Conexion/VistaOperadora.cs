@@ -8,7 +8,8 @@ namespace Chiapas.ViajeroAA.Conexion
 {
     public class VistaOperadora
     {
-       
+        public int id { get; set; }
+        //ID DE LALO
         public string NombreOperadora { get; set; }
         public string SitioWeb { get; set; }
         public string Direccion { get; set; }
