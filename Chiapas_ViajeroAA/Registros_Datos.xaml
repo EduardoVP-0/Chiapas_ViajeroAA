@@ -9,10 +9,22 @@
     <Viewbox Stretch="Fill">
         <Grid Width="1355" Height="710">
             <!-- Aquí diseñas como si fuera fijo, y Viewbox lo escala -->
-
+            <Button Content="←" Background="#FF505D89" Foreground="White" BorderBrush="#FF505D89" FontSize="30" 
+                    FontWeight="Bold" HorizontalAlignment="Left" Margin="1298,16,0,0" VerticalAlignment="Top" 
+                    Width="43" Height="34" Click="BtnRegresar">
+                <Button.Template>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}"
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="0"
+                                CornerRadius="40">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"
+                                              Height="31" Margin="10,-7,0,10" Width="33"/>
+                        </Border>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
             <Image Source="img/imagen.png" Stretch="Uniform" Margin="-81,0,922,0" />
-
-            <TextBox x:Name="TxtIdOperadora" IsReadOnly="True" Margin="416,28,839,644" />
 
             <Label Content="REGISTROS DE DATOS" HorizontalAlignment="Left" Margin="721,42,0,0" 
                    VerticalAlignment="Top" Width="378" FontFamily="Poppins" FontSize="26" FontWeight="Bold"/>
@@ -103,7 +115,7 @@
                      AcceptsReturn="True"
                      TextWrapping="Wrap"/>
             </Border>
-            
+
             <!--Direccion-->
             <Label Content="Dirección" HorizontalAlignment="Left" Margin="755,368,0,0" 
                    VerticalAlignment="Top" Width="226" FontFamily="Poppins" FontSize="18" />
@@ -119,7 +131,7 @@
                      AcceptsReturn="True"
                      TextWrapping="Wrap"/>
             </Border>
-            
+
             <!--TELEFONO-->
             <Label Content="Teléfono" HorizontalAlignment="Left" Margin="755,533,0,0" 
                    VerticalAlignment="Top" Width="226" FontFamily="Poppins" FontSize="18" />
@@ -130,10 +142,10 @@
                       FontFamily="Poppins"
                       BorderBrush="#90FFFFFF"
                       BorderThickness="1"
-                      Foreground="Black" >   
-                        <ComboBoxItem Content="+98" />
-                        <ComboBoxItem Content="+90" />
-                        <ComboBoxItem Content="+12" />
+                      Foreground="Black" >
+                    <ComboBoxItem Content="+98" />
+                    <ComboBoxItem Content="+90" />
+                    <ComboBoxItem Content="+12" />
                 </ComboBox>
             </Border>
 
@@ -212,8 +224,8 @@
                      Padding="23,2"
                      Foreground="Black"/>
             </Border>
-            
-            
+
+
             <!--BOTON PARA GUARDAR-->
             <Button x:Name="Btn_Guardar" Content="G u a r d a r" 
                 FontFamily="Poppins"  

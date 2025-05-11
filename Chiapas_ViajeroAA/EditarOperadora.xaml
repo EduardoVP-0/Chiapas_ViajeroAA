@@ -11,12 +11,27 @@
     <Viewbox Stretch="Fill">
         <Grid Width="1355" Height="710">
             <!-- Aquí diseñas como si fuera fijo, y Viewbox lo escala -->
+            <Button Content="←" Background="#FF505D89" Foreground="White" BorderBrush="#FF505D89" FontSize="30" 
+                    FontWeight="Bold" HorizontalAlignment="Left" Margin="1298,16,0,0" VerticalAlignment="Top" 
+                    Width="43" Height="34" Click="BtnRegresar">
+                <Button.Template>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}"
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="0"
+                                CornerRadius="40">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"
+                                              Height="31" Margin="10,-7,0,10" Width="33"/>
+                        </Border>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
 
             <Image Source="img/imagen.png" Stretch="Uniform" Margin="-81,0,922,0" />
 
-            <TextBox x:Name="TxtIdOperadora" IsReadOnly="True" Margin="416,28,839,644" />
+            <TextBox x:Name="TxtIdOperadora" IsReadOnly="True" Visibility="Collapsed" Margin="416,28,839,644" />
 
-            <Label Content="REGISTROS DE DATOS" HorizontalAlignment="Left" Margin="721,42,0,0" 
+            <Label Content="Editar Regristro de Operadora" HorizontalAlignment="Left" Margin="721,42,0,0" 
                    VerticalAlignment="Top" Width="378" FontFamily="Poppins" FontSize="26" FontWeight="Bold"/>
 
             <Button Content="1" Background="#FF505D89" Foreground="White" BorderBrush="#FF505D89" FontSize="18" 
@@ -41,10 +56,24 @@
             <Label Content="Logo (Imagen)" HorizontalAlignment="Left" Margin="414,193,0,0" 
                    VerticalAlignment="Top" Width="138" FontFamily="Poppins" FontSize="18" />
 
-            <Border x:Name="borderImagen" CornerRadius="30" BorderBrush="#90FFFFFF" BorderThickness="0"
-                    Background="#E7E6E6" Margin="414,245,699,342">
+            <Border x:Name="borderImagen" CornerRadius="30" BorderBrush="#10FFFFFF" BorderThickness="0"
+                    Background="#10E7E6E6" Margin="414,245,699,342">
                 <Image Name="ImgOperadora"/>
             </Border>
+            
+            <!--BOTON PARA CAMBIAR LA IMAGEN-->
+            <Button Name="BtnAgregarImagen" Content="+" Background="#FF505D89" Foreground="White" BorderBrush="#FF505D89" FontSize="36" FontWeight="Bold" Margin="631,339,681,335" Click="btnImagen_Click">
+                <Button.Template>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}"
+                    BorderBrush="{TemplateBinding BorderBrush}"
+                    BorderThickness="0"
+                    CornerRadius="40">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" Height="47" Margin="10,-13,10,-3" Width="25"/>
+                        </Border>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
 
             
 
@@ -82,7 +111,7 @@
             <!--DESCRIPCIÓN-->
             <Label Content="Descripción" HorizontalAlignment="Left" Margin="755,193,0,0" 
                    VerticalAlignment="Top" Width="226" FontFamily="Poppins" FontSize="18" />
-            <Border CornerRadius="16" BorderBrush="#90FFFFFF" BorderThickness="0" Background="#E7E6E6" Margin="774,245,345,369">
+            <Border CornerRadius="16" BorderBrush="#90FFFFFF" BorderThickness="0" Background="#E7E6E6" Margin="762,245,357,369">
                 <TextBox Name="TxtDescripcion"
                      FontSize="18"
                      Background="Transparent"
@@ -98,7 +127,7 @@
             <!--Direccion-->
             <Label Content="Dirección" HorizontalAlignment="Left" Margin="755,368,0,0" 
                    VerticalAlignment="Top" Width="226" FontFamily="Poppins" FontSize="18" />
-            <Border CornerRadius="16" BorderBrush="#90FFFFFF" BorderThickness="0" Background="#E7E6E6" Margin="774,405,345,201">
+            <Border CornerRadius="16" BorderBrush="#90FFFFFF" BorderThickness="0" Background="#E7E6E6" Margin="762,405,357,201">
                 <TextBox Name="TxtDireccion"
                      FontSize="18"
                      Background="Transparent"
@@ -114,7 +143,7 @@
             <!--TELEFONO-->
             <Label Content="Teléfono" HorizontalAlignment="Left" Margin="755,533,0,0" 
                    VerticalAlignment="Top" Width="226" FontFamily="Poppins" FontSize="18" />
-            <Border CornerRadius="32" BorderBrush="#90FFFFFF" BorderThickness="1" Background="#E7E6E6"          Margin="774,590,513,91">
+            <Border CornerRadius="32" BorderBrush="#90FFFFFF" BorderThickness="1" Background="#E7E6E6"          Margin="762,587,525,94">
                 <ComboBox Name="CmbLada"
                       FontSize="20"
                       Background="Transparent"
@@ -128,7 +157,7 @@
                 </ComboBox>
             </Border>
 
-            <Border CornerRadius="16" BorderBrush="#90FFFFFF" BorderThickness="0" Background="#E7E6E6" Margin="853,580,345,85">
+            <Border CornerRadius="16" BorderBrush="#90FFFFFF" BorderThickness="0" Background="#E7E6E6" Margin="841,580,357,85">
                 <TextBox Name="TxtTelefono"
                      FontSize="18"
                      Background="Transparent"
@@ -205,7 +234,27 @@
             </Border>
 
 
-            <!--BOTON PARA GUARDAR-->
+            <!--BOTON PARA EDITARR-->
+            <Button x:Name="Btn_Guardar" Content="E d i t a r" 
+                FontFamily="Poppins"  
+                Margin="1058,580,22,85"  
+                Background="#505D89" 
+                Foreground="White" 
+                FontSize="18" 
+                BorderBrush="#505D89" Click="Btn_Editar_Click" 
+                >
+                <Button.Template>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}" 
+                    BorderBrush="{TemplateBinding BorderBrush}" 
+                    BorderThickness="1" 
+                    CornerRadius="16">
+                            <ContentPresenter HorizontalAlignment="Center" 
+                                  VerticalAlignment="Center" />
+                        </Border>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
             
         </Grid>
     </Viewbox>

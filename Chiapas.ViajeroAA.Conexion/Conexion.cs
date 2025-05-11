@@ -16,7 +16,7 @@ namespace Chiapas.ViajeroAA.Conexion
             {
                 conectar.Open();
             }
-            catch (Exception ex)
+            catch (Exception )
             {
                 Console.WriteLine("error");
             }

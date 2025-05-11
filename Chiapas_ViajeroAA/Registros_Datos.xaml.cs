@@ -94,5 +94,16 @@ namespace Pagina_Principal
 
             return nombreImagen;
         }
+
+
+        //BOTON PARA REGRESAR A GESTION DE OPERADORAS
+
+        private void BtnRegresar(Object Sender, RoutedEventArgs e)
+        {
+            Gestion_Operadora ventanaRegresar = new Gestion_Operadora();
+            ventanaRegresar.Show();
+
+            this.Close();
+        }
     }
 }
