@@ -1,0 +1,99 @@
+﻿<Window x:Class="Pagina_Principal.IniciarSesion"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Pagina_Principal"
+        mc:Ignorable="d"
+        Title="Iniciar Sesión" Height="588" Width="452" WindowState="Normal">
+    <Grid>
+        <!-- FONDO DE LA HOJA -->
+        <Grid.Background>
+            <ImageBrush ImageSource="img/fondo.png" Stretch="Fill" RenderOptions.BitmapScalingMode="HighQuality"/>
+        </Grid.Background>
+
+        <!--Contenido de Iniciar Sesión-->
+        <Label Content="Iniciar Sesión" Margin="34,61,188,444" FontFamily="Poppins" FontSize="32" FontWeight="Bold" Foreground="White"/>
+
+
+        <!--INPUT (php)-->
+
+        <!--LABEL DE EMAIL-->
+        <Border CornerRadius="30" BorderBrush="#50FFFFFF" BorderThickness="0" Background="#99FFFFFF" Margin="38,172,46,327">
+            <TextBox Name="txtEmail"
+             Text="email"
+             FontSize="18"
+             Background="Transparent"
+             FontFamily="Poppins"
+             BorderThickness="0"
+             VerticalContentAlignment="Center"
+             Padding="23,2"
+             Foreground="#767171"
+             Margin="2,0,-2,0"
+             GotFocus="txtEmail_GotFocus"
+             LostFocus="txtEmail_LostFocus"/>
+        </Border>
+
+        <Grid Margin="43,257,74,238">
+            <!-- Border redondeado -->
+            <Border CornerRadius="30"
+            BorderBrush="#50FFFFFF"
+            BorderThickness="0"
+            Background="#99FFFFFF" Margin="0,-2,-31,7">
+
+                <!-- PasswordBox para escribir contraseña oculta -->
+                <PasswordBox Name="txtPassword"
+                     FontSize="18"
+                     Background="Transparent"
+                     FontFamily="Poppins"
+                     BorderThickness="0"
+                     Padding="23,2"
+                     VerticalContentAlignment="Center"
+                     Foreground="Black"
+                     PasswordChanged="txtPassword_PasswordChanged"
+                     GotFocus="txtPassword_GotFocus"
+                     LostFocus="txtPassword_LostFocus" HorizontalAlignment="Left" Width="358"/>
+            </Border>
+
+            <!-- Placeholder de contraseña -->
+            <TextBlock Name="passwordPlaceholder"
+               Text="contraseña"
+               FontSize="18"
+               FontFamily="Poppins"
+               Foreground="#767171"
+               VerticalAlignment="Center"
+               Margin="22,15,1,25"
+               IsHitTestVisible="False"
+               Visibility="Visible"/>
+        </Grid>
+
+        <!--BOPON PARA HACER EL SUBMIT-->
+        <Button Content="Iniciar sesión" 
+                FontFamily="Poppins"  
+                Margin="38,371,46,132"  
+                Background="#FF505D89" 
+                Foreground="White" 
+                FontSize="18" 
+                BorderBrush="#FF505D89" 
+                >
+            <Button.Template>
+                <ControlTemplate TargetType="Button">
+                    <Border Background="{TemplateBinding Background}" 
+                    BorderBrush="{TemplateBinding BorderBrush}" 
+                    BorderThickness="1" 
+                    CornerRadius="16">
+                        <ContentPresenter HorizontalAlignment="Center" 
+                                  VerticalAlignment="Center" />
+                    </Border>
+                </ControlTemplate>
+            </Button.Template>
+        </Button>
+
+        <!--AQUI VA EL REGRESO A LA PRINCIPAL-->
+        <Label Content="¿Aún no tienes cuenta?" Margin="87,449,184,76" FontFamily="Poppins" FontSize="14" Foreground="White"/>
+
+        <Label Content="Regístrate" Margin="238,449,34,76" FontFamily="Poppins" FontWeight="Bold" FontSize="14" Foreground="#455177" MouseLeftButtonDown="btn_Login"/>
+
+
+    </Grid>
+</Window>

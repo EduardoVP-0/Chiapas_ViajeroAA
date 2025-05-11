@@ -1,0 +1,48 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.35706.149
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pagina_Principal", "Chiapas_ViajeroAA\Pagina_Principal.csproj", "{C4BA3EDB-F2D5-4E70-AE15-975B33DB1ACC}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Capa_Presentacion", "Capa_Presentacion", "{D5F0DA88-4D00-4F39-817E-D5B11F6DB9AE}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Capa_Datos", "Capa_Datos", "{0BA40759-DE77-41C3-AB06-C7B0E2091F71}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Capa_Logica", "Capa_Logica", "{63B53C4B-9516-46A5-997B-6EFC43A821D1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Chiapas.ViajeroAA.Conexion", "Chiapas.ViajeroAA.Conexion\Chiapas.ViajeroAA.Conexion.csproj", "{47F292D0-EC4A-4C48-A6C9-BC0105652DE2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Chiapas.ViajeroAA.Logica", "Chiapas.ViajeroAA.Logica\Chiapas.ViajeroAA.Logica.csproj", "{65D3DCCD-4206-48B2-A47D-7AA755591B58}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C4BA3EDB-F2D5-4E70-AE15-975B33DB1ACC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C4BA3EDB-F2D5-4E70-AE15-975B33DB1ACC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C4BA3EDB-F2D5-4E70-AE15-975B33DB1ACC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C4BA3EDB-F2D5-4E70-AE15-975B33DB1ACC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{47F292D0-EC4A-4C48-A6C9-BC0105652DE2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{47F292D0-EC4A-4C48-A6C9-BC0105652DE2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{47F292D0-EC4A-4C48-A6C9-BC0105652DE2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{47F292D0-EC4A-4C48-A6C9-BC0105652DE2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{65D3DCCD-4206-48B2-A47D-7AA755591B58}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{65D3DCCD-4206-48B2-A47D-7AA755591B58}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{65D3DCCD-4206-48B2-A47D-7AA755591B58}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{65D3DCCD-4206-48B2-A47D-7AA755591B58}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{C4BA3EDB-F2D5-4E70-AE15-975B33DB1ACC} = {D5F0DA88-4D00-4F39-817E-D5B11F6DB9AE}
+		{47F292D0-EC4A-4C48-A6C9-BC0105652DE2} = {0BA40759-DE77-41C3-AB06-C7B0E2091F71}
+		{65D3DCCD-4206-48B2-A47D-7AA755591B58} = {63B53C4B-9516-46A5-997B-6EFC43A821D1}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {7436883A-F152-4481-8068-F1676EE4037E}
+	EndGlobalSection
+EndGlobal
