@@ -11,6 +11,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using Chiapas.ViajeroAA.Logica;
+using Chiapas.ViajeroAA.Conexion;
 
 namespace Pagina_Principal
 {
@@ -19,9 +21,31 @@ namespace Pagina_Principal
     /// </summary>
     public partial class Gestion_Operadora : Window
     {
+        private OperadoraVistaServicio _servicio;
         public Gestion_Operadora()
         {
             InitializeComponent();
+            _servicio = new OperadoraVistaServicio();
+            CargarDatos();
+        }
+        private void CargarDatos()
+        {
+            miDataGrid.ItemsSource = _servicio.ObtenerTodas();
+        }
+
+        private void Ver_Click(object sender, RoutedEventArgs e)
+        {
+            var operadora = (VistaOperadora)miDataGrid.SelectedItem;
+
+            if (operadora != null)
+            {
+                MessageBox.Show($"Datos de la operadora:\n\n" +
+                                $"Nombre: {operadora.NombreOperadora}\n" +
+                                $"Sitio Web: {operadora.SitioWeb}\n" +
+                                $"Dirección: {operadora.Direccion}\n" +
+                                $"Representante: {operadora.Representante}\n" +
+                                $"Email: {operadora.Email}");
+            }
         }
 
         private void BtnAgregarOperadora(object sender, RoutedEventArgs e)

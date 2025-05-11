@@ -143,6 +143,8 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RepositorioAdministrador.cs" />
+    <Compile Include="RepositorioOperadora.cs" />
+    <Compile Include="VistaOperadora.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
