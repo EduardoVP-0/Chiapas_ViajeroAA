@@ -213,13 +213,13 @@
             
             
             <!--BOTON PARA GUARDAR-->
-            <Button Content="G u a r d a r" 
+            <Button x:Name="Btn_Guardar" Content="G u a r d a r" 
                 FontFamily="Poppins"  
                 Margin="1058,580,22,85"  
                 Background="#505D89" 
                 Foreground="White" 
                 FontSize="18" 
-                BorderBrush="#505D89" 
+                BorderBrush="#505D89" Click="Button_Click" 
                 >
                 <Button.Template>
                     <ControlTemplate TargetType="Button">

@@ -1,8 +1,11 @@
 ﻿using System;
+using System.IO;
 using System.Windows;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using Chiapas.ViajeroAA.Conexion;
+using Chiapas.ViajeroAA.Logica;
 
 namespace Pagina_Principal
 {
@@ -11,31 +14,85 @@ namespace Pagina_Principal
     /// </summary>
     public partial class Registros_Datos : Window
     {
+        private ServicioDatos _Serviciodatos;
+        private string rutaImagenSeleccionada = string.Empty;
         public Registros_Datos()
         {
             InitializeComponent();
+            _Serviciodatos = new ServicioDatos(new DatosOperadora());
         }
 
         private void btnImagen_Click(object sender, RoutedEventArgs e)
         {
-            // Crear el diálogo de selección de archivo
             Microsoft.Win32.OpenFileDialog openFileDialog = new Microsoft.Win32.OpenFileDialog();
-
-            // Filtrar los tipos de archivo a permitir: PNG, JPG y JPEG
             openFileDialog.Filter = "Imágenes (*.png;*.jpg;*.jpeg)|*.png;*.jpg;*.jpeg";
 
-            // Mostrar el diálogo de archivo
             if (openFileDialog.ShowDialog() == true)
             {
-                // Si el usuario selecciona un archivo, se establece la imagen
                 ImgOperadora.Source = new BitmapImage(new Uri(openFileDialog.FileName));
 
-                // Ocultar el Border (dejarlo transparente) para que solo se vea la imagen
+                // Oculta el Border al mostrar la imagen
                 borderImagen.Background = Brushes.Transparent;
                 borderImagen.BorderBrush = Brushes.Transparent;
+                ImgOperadora.Source = new BitmapImage(new Uri(openFileDialog.FileName));
+                rutaImagenSeleccionada = openFileDialog.FileName; // << GUARDAMOS AQUÍ
             }
         }
 
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            string nombreoperadora = TxtNombre.Text;
+            string sitioweb = TxtSitio.Text;
+            string descripcion = TxtDescripcion.Text;
+            string direccion = TxtDireccion.Text;
+            string ladaa = CmbLada.Text;
+            string telefono = TxtTelefono.Text;
+            string representante = TxtRepresentante.Text;
+            string correo = TxtCorreo.Text;
+            string identificacion = TxtIdentificacion.Text;
+            string fotoPath = string.Empty;
+            if (string.IsNullOrEmpty(nombreoperadora) || string.IsNullOrEmpty(sitioweb) || string.IsNullOrEmpty(descripcion) 
+                || string.IsNullOrEmpty(direccion) || string.IsNullOrEmpty(ladaa) || string.IsNullOrEmpty(telefono) || string.IsNullOrEmpty(representante
+                ) || string.IsNullOrEmpty(correo) || string.IsNullOrEmpty(identificacion))
+            {
+                MessageBox.Show("Por favor, complete todos los campos.");
+                return;
+            }
 
+            // Verificar que la imagen esté seleccionada
+            if (ImgOperadora.Source != null)
+            {
+                fotoPath = GuardarImagen();
+            }
+            else
+            {
+                MessageBox.Show("Por favor, seleccione una foto.");
+                return;
+            }
+
+            try
+            {
+                // Crear cuenta utilizando el servicio de lógica
+                _Serviciodatos.CrearOperadora(nombreoperadora, sitioweb, descripcion, direccion,
+            ladaa, telefono,  representante,  correo,  identificacion, fotoPath);
+                MessageBox.Show("Operadora guardada exitosamente.");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error: {ex.Message}");
+            }
+        }
+        private string GuardarImagen()
+        {
+            string carpetaFotos = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Fotos");
+            Directory.CreateDirectory(carpetaFotos);
+
+            string nombreImagen = Guid.NewGuid().ToString() + Path.GetExtension(rutaImagenSeleccionada);
+            string destino = Path.Combine(carpetaFotos, nombreImagen);
+
+            File.Copy(rutaImagenSeleccionada, destino, true); // 'true' para sobrescribir si existe
+
+            return nombreImagen;
+        }
     }
 }

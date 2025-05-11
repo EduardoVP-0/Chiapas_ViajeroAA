@@ -140,6 +140,7 @@
     <Compile Include="AdministradorServicio.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ServicioDatos.cs" />
     <Compile Include="ValidarAdmin.cs" />
   </ItemGroup>
   <ItemGroup>
