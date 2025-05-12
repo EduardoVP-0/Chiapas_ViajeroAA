@@ -64,5 +64,13 @@ namespace Pagina_Principal
 
             this.Close();
         }
+
+        private void Btn_Registros(object sender, RoutedEventArgs e)
+        {
+            Gestion_Operadora ventanaRegistro = new Gestion_Operadora();
+            ventanaRegistro.Show();
+
+            this.Close();
+        }
     }
 }

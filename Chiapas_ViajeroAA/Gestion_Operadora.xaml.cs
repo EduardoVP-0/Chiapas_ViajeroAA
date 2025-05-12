@@ -105,5 +105,13 @@ namespace Pagina_Principal
                 }
             }
         }
+
+        private void BtnHome(object sender, RoutedEventArgs e)
+        {
+            Home VentanaHome = new Home();
+            VentanaHome.Show();
+
+            this.Close();
+        }
     }
 }

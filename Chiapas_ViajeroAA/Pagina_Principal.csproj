@@ -282,5 +282,8 @@
   <ItemGroup>
     <Folder Include="Operadoras\" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Home.jpg" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

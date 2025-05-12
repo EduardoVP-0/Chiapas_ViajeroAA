@@ -42,9 +42,5 @@
             </Button.Content>
         </Button>
 
-        <Button x:Name="DatosR" Content="REGISTOS DATOS" Click="BtnRegistros" Margin="170,494,151,10"/>
-        <Button x:Name="DatosRe" Content="gestion" Click="BtnGestion" Margin="35,487,286,17"/>
-        <Button x:Name="Home" Content="Home" Click="BtnHome" Margin="315,497,30,28"/>
-
     </Grid>
 </Window>

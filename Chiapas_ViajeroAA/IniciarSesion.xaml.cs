@@ -94,7 +94,7 @@ namespace Pagina_Principal
             {
                 MessageBox.Show("¡Acceso correcto!");
                 // Abrir la ventana principal
-                Window1 ventana = new Window1();
+                Home ventana = new Home();
                 ventana.Show();
                 this.Close();
             }

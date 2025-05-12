@@ -31,7 +31,7 @@
             <!--MENU Y PERFIL-->
 
             <Button Name="BtnRegistro" Content="Registro" HorizontalAlignment="Left" Margin="344,48,0,0" VerticalAlignment="Top"
-                Width="119" FontFamily="Poppins" FontSize="26" FontWeight="Bold" Foreground="Black" Background="Transparent" BorderThickness="0">
+                Width="119" FontFamily="Poppins" FontSize="26" FontWeight="Bold" Foreground="Black" Background="Transparent" BorderThickness="0" Click="Btn_Registros">
                 <Button.Template>
                     <ControlTemplate TargetType="Button">
                         <Border x:Name="border" Background="Transparent" CornerRadius="5" BorderThickness="0">

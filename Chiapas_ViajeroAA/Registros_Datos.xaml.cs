@@ -9,13 +9,11 @@ using Chiapas.ViajeroAA.Logica;
 
 namespace Pagina_Principal
 {
-    /// <summary>
-    /// Lógica de interacción para Registros_Datos.xaml
-    /// </summary>
     public partial class Registros_Datos : Window
     {
         private ServicioDatos _Serviciodatos;
         private string rutaImagenSeleccionada = string.Empty;
+
         public Registros_Datos()
         {
             InitializeComponent();
@@ -34,8 +32,8 @@ namespace Pagina_Principal
                 // Oculta el Border al mostrar la imagen
                 borderImagen.Background = Brushes.Transparent;
                 borderImagen.BorderBrush = Brushes.Transparent;
-                ImgOperadora.Source = new BitmapImage(new Uri(openFileDialog.FileName));
-                rutaImagenSeleccionada = openFileDialog.FileName; // << GUARDAMOS AQUÍ
+
+                rutaImagenSeleccionada = openFileDialog.FileName;
             }
         }
 
@@ -51,9 +49,11 @@ namespace Pagina_Principal
             string correo = TxtCorreo.Text;
             string identificacion = TxtIdentificacion.Text;
             string fotoPath = string.Empty;
-            if (string.IsNullOrEmpty(nombreoperadora) || string.IsNullOrEmpty(sitioweb) || string.IsNullOrEmpty(descripcion) 
-                || string.IsNullOrEmpty(direccion) || string.IsNullOrEmpty(ladaa) || string.IsNullOrEmpty(telefono) || string.IsNullOrEmpty(representante
-                ) || string.IsNullOrEmpty(correo) || string.IsNullOrEmpty(identificacion))
+
+            // Validar campos vacíos
+            if (string.IsNullOrEmpty(nombreoperadora) || string.IsNullOrEmpty(sitioweb) || string.IsNullOrEmpty(descripcion)
+                || string.IsNullOrEmpty(direccion) || string.IsNullOrEmpty(ladaa) || string.IsNullOrEmpty(telefono)
+                || string.IsNullOrEmpty(representante) || string.IsNullOrEmpty(correo) || string.IsNullOrEmpty(identificacion))
             {
                 MessageBox.Show("Por favor, complete todos los campos.");
                 return;
@@ -72,37 +72,56 @@ namespace Pagina_Principal
 
             try
             {
-                // Crear cuenta utilizando el servicio de lógica
                 _Serviciodatos.CrearOperadora(nombreoperadora, sitioweb, descripcion, direccion,
-            ladaa, telefono,  representante,  correo,  identificacion, fotoPath);
+                    ladaa, telefono, representante, correo, identificacion, fotoPath);
+
                 MessageBox.Show("Operadora guardada exitosamente.");
+                LimpiarFormulario();
             }
             catch (Exception ex)
             {
                 MessageBox.Show($"Error: {ex.Message}");
             }
         }
+
         private string GuardarImagen()
         {
             string carpetaFotos = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Fotos");
-            Directory.CreateDirectory(carpetaFotos);
+            Directory.CreateDirectory(carpetaFotos); // Crea carpeta si no existe
 
             string nombreImagen = Guid.NewGuid().ToString() + Path.GetExtension(rutaImagenSeleccionada);
             string destino = Path.Combine(carpetaFotos, nombreImagen);
 
             File.Copy(rutaImagenSeleccionada, destino, true); // 'true' para sobrescribir si existe
 
-            return nombreImagen;
+            return nombreImagen; // Esto guarda solo el nombre, no la ruta completa
         }
 
+        private void LimpiarFormulario()
+        {
+            TxtNombre.Clear();
+            TxtSitio.Clear();
+            TxtDescripcion.Clear();
+            TxtDireccion.Clear();
+            CmbLada.SelectedIndex = -1;
+            TxtTelefono.Clear();
+            TxtRepresentante.Clear();
+            TxtCorreo.Clear();
+            TxtIdentificacion.Clear();
 
-        //BOTON PARA REGRESAR A GESTION DE OPERADORAS
+            ImgOperadora.Source = null;
+            borderImagen.Background = Brushes.White;
+            borderImagen.BorderBrush = Brushes.Gray;
+
+            rutaImagenSeleccionada = string.Empty;
+
+            TxtNombre.Focus(); // Opcional: enfoca al primer campo
+        }
 
         private void BtnRegresar(Object Sender, RoutedEventArgs e)
         {
             Gestion_Operadora ventanaRegresar = new Gestion_Operadora();
             ventanaRegresar.Show();
-
             this.Close();
         }
     }

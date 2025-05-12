@@ -13,6 +13,15 @@
     <Viewbox Stretch="Fill">
         <Grid Width="1355" Height="710">
 
+            <Button Background="Transparent" BorderThickness="0" Cursor="Hand" Margin="1236,10,18,652" Click="BtnHome">
+                <Button.Template>
+                    <ControlTemplate TargetType="Button">
+                        <ContentPresenter/>
+                    </ControlTemplate>
+                </Button.Template>
+                <Image Source="Home.jpg" Stretch="Uniform"/>
+            </Button>
+
             <Label Content="GESTIÓN DE OPERADORAS" HorizontalAlignment="Left" Margin="495,67,0,0" 
                    VerticalAlignment="Top" Width="351" FontFamily="Poppins" FontSize="26" FontWeight="Bold" RenderTransformOrigin="-0.003,1.393"/>
             
