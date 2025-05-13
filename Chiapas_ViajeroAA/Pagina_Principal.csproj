@@ -265,10 +265,10 @@
     <Resource Include="BotonA.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Ranking.png" />
+    <Resource Include="img\Ranking.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Comentarios.png" />
+    <Resource Include="img\Comentarios.png" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Banner1.png" />
@@ -277,7 +277,7 @@
     <Resource Include="Banner2.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Operadoras.png" />
+    <Resource Include="img\Operadoras.png" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Operadoras\" />
