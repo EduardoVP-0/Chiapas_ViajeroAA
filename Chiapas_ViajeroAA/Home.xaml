@@ -146,12 +146,21 @@
             </Grid>
 
             <!--SECCIÓN DE VER TODAS LAS OPERADORAS-->
-            <Border BorderBrush="#FFFFFF" BorderThickness="0" CornerRadius="15" Background="#00E7E6E6" Margin="510,518,10,10">
-                <Image Source="img/Operadoras.png" Stretch="Fill" Opacity="1" Margin="0,0,10,10"/>
+            <Border  BorderBrush="#FFFFFF" BorderThickness="0" CornerRadius="15" Background="#99E7E6E6" Margin="477,553,651,29">
+                <Image Name="Image1"  Stretch="Fill" Opacity="1" Margin="0,0,10,10"/>
+            </Border>
+            <Border  BorderBrush="#FFFFFF" BorderThickness="0" CornerRadius="15" Background="#99E7E6E6" Margin="709,553,431,29">
+                <Image Name="Image2" Stretch="Fill" Opacity="1" Margin="0,0,10,10"/>
+            </Border>
+            <Border  BorderBrush="#FFFFFF" BorderThickness="0" CornerRadius="15" Background="#99E7E6E6" Margin="929,553,210,29">
+                <Image Name="Image3"  Stretch="Fill" Opacity="1" Margin="0,0,10,10"/>
+            </Border>
+            <Border  BorderBrush="#FFFFFF" BorderThickness="0" CornerRadius="15" Background="#99E7E6E6" Margin="1150,553,10,29">
+                <Image Name="Image4"  Stretch="Fill" Opacity="1" Margin="0,0,10,10"/>
             </Border>
 
             <!--Ver todas las operadoras-->
-            <Button Content="Ver todas"  FontFamily="Poppins" Margin="1190,521,34,160" Background="#505D89" Foreground="White"   FontSize="16" BorderBrush="#505D89">
+            <Button Content="Ver todas"  FontFamily="Poppins" Margin="1205,504,10,180" Background="#505D89" Foreground="White"   FontSize="16" BorderBrush="#505D89">
                 <Button.Template>
                     <ControlTemplate TargetType="Button">
                         <Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}"  BorderThickness="1" CornerRadius="16">
@@ -160,6 +169,11 @@
                     </ControlTemplate>
                 </Button.Template>
             </Button>
+            <Label Content="Operadoras Recientes" HorizontalAlignment="Left" Margin="487,504,0,0" 
+                VerticalAlignment="Top" Width="419" FontFamily="Poppins" FontSize="24" FontWeight="DemiBold" Height="36"/>
+
+            <Label Name="Logueado" Content="" HorizontalAlignment="Left" Margin="498,74,0,0" 
+                VerticalAlignment="Top" Width="519" FontFamily="Poppins" FontSize="24" FontWeight="DemiBold" Height="36"/>
 
         </Grid>
 

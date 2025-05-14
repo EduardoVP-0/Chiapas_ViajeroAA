@@ -4,6 +4,8 @@ using System.Windows;
 using System.Windows.Media.Animation;
 using System.Windows.Media.Imaging;
 using System.Windows.Threading;
+using System.IO;
+
 
 namespace Pagina_Principal
 {
@@ -25,6 +27,8 @@ namespace Pagina_Principal
         {
             InitializeComponent();
             IniciarCarrusel();
+            MostrarUltimos4Logos();
+
         }
 
         private void IniciarCarrusel()
@@ -72,5 +76,57 @@ namespace Pagina_Principal
 
             this.Close();
         }
+
+        //Mostrar las 4 ULtimas Fotos de las operadoras
+        private void MostrarUltimos4Logos()
+        {
+            try
+            {
+                var repo = new Chiapas.ViajeroAA.Conexion.RepositorioOperadora();
+                var logos = repo.ObtenerUltimos4Logos();
+
+                // Ruta base donde se almacenan las imágenes
+                string rutaBase = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Fotos");
+
+                // Cargar imágenes si existen
+                if (logos.Count > 0)
+                {
+                    string ruta1 = System.IO.Path.Combine(rutaBase, logos[0]);
+                    if (File.Exists(ruta1))
+                        Image1.Source = new BitmapImage(new Uri(ruta1, UriKind.Absolute));
+                }
+
+                if (logos.Count > 1)
+                {
+                    string ruta2 = System.IO.Path.Combine(rutaBase, logos[1]);
+                    if (File.Exists(ruta2))
+                        Image2.Source = new BitmapImage(new Uri(ruta2, UriKind.Absolute));
+                }
+
+                if (logos.Count > 2)
+                {
+                    string ruta3 = System.IO.Path.Combine(rutaBase, logos[2]);
+                    if (File.Exists(ruta3))
+                        Image3.Source = new BitmapImage(new Uri(ruta3, UriKind.Absolute));
+                }
+
+                if (logos.Count > 3)
+                {
+                    string ruta4 = System.IO.Path.Combine(rutaBase, logos[3]);
+                    if (File.Exists(ruta4))
+                        Image4.Source = new BitmapImage(new Uri(ruta4, UriKind.Absolute));
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al cargar las imágenes de operadoras: " + ex.Message);
+            }
+        }
+
+
+
+
+
+
     }
 }

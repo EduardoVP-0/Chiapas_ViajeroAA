@@ -155,6 +155,36 @@ namespace Chiapas.ViajeroAA.Conexion
             }
         }
 
+        // Método nuevo para obtener las últimas 4 operadoras con su logo
+        public List<string> ObtenerUltimos4Logos()
+        {
+            var logos = new List<string>();
+
+            using (var conn = _conexion.ObtenerConexion())
+            {
+                string query = "SELECT logo FROM operadora ORDER BY id DESC LIMIT 4";
+
+                using (var cmd = new MySqlCommand(query, conn))
+                using (var reader = cmd.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        string logo = reader.IsDBNull(0) ? null : reader.GetString(0);
+                        if (!string.IsNullOrEmpty(logo))
+                        {
+                            logos.Add(logo);
+                        }
+                    }
+                }
+            }
+
+            return logos;
+        }
+
+
+
+
+
 
     }
 }
