@@ -163,7 +163,14 @@ namespace Pagina_Principal
         {
             Usuarios ventanaUsuarios = new Usuarios();
             ventanaUsuarios.Show();
-            this.Hide(); // Cambia Close() por Hide()
+            this.Close(); // Cambia Close() por Hide()
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            Operadoras_Todas ventanaOperadoras = new Operadoras_Todas();
+            ventanaOperadoras.Show();
+            this.Close(); // Cambia Close() por Hide()
         }
     }
 }

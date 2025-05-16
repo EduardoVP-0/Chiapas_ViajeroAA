@@ -139,6 +139,7 @@
   <ItemGroup>
     <Compile Include="AdministradorServicio.cs" />
     <Compile Include="operadoraEliminarLogica.cs" />
+    <Compile Include="OperadoraLogica.cs" />
     <Compile Include="OperadoraVistaServicio.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

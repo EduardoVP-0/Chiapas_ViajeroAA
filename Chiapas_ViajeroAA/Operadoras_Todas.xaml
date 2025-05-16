@@ -1,0 +1,68 @@
+﻿<Window x:Class="Pagina_Principal.Operadoras_Todas"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Pagina_Principal"
+        mc:Ignorable="d"
+        Title="Operadoras_Todas" Height="450" Width="800">
+    <ScrollViewer HorizontalScrollBarVisibility="Auto">
+        <Grid Margin="20">
+            <StackPanel Orientation="Vertical">
+                <TextBlock Text="OPERADORAS TURÍSTICAS" FontSize="24" FontWeight="Bold" Margin="0,0,0,20"/>
+
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+
+                    <!-- Encabezados -->
+                    <TextBlock Text="ID" FontWeight="Bold" Grid.Row="0"/>
+                    <TextBlock Text="Nombre Operadora" FontWeight="Bold" Grid.Row="1"/>
+                    <TextBlock Text="Logo" FontWeight="Bold" Grid.Row="2"/>
+                    <TextBlock Text="Representante" FontWeight="Bold" Grid.Row="3"/>
+                    <TextBlock Text="Email" FontWeight="Bold" Grid.Row="4"/>
+                    <TextBlock Text="Sitio Web" FontWeight="Bold" Grid.Row="5"/>
+                    <TextBlock Text="Ver Más" FontWeight="Bold" Grid.Row="6"/>
+
+                    <!-- Datos -->
+                    <ItemsControl ItemsSource="{Binding Operadoras}">
+                        <ItemsControl.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <StackPanel Orientation="Horizontal"/>
+                            </ItemsPanelTemplate>
+                        </ItemsControl.ItemsPanel>
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Vertical" Margin="20,0">
+                                    <TextBlock Text="{Binding Id}" Grid.Row="0" Margin="5"/>
+                                    <TextBlock Text="{Binding NombreOperadora}" Grid.Row="1" Margin="5"/>
+
+                                    <!-- Imagen -->
+                                    <Image Width="80" Height="80" Margin="5">
+                                        <Image.Source>
+                                            <BitmapImage UriSource="{Binding LogoRuta}" />
+                                        </Image.Source>
+                                    </Image>
+
+                                    <TextBlock Text="{Binding Representante}" Grid.Row="3" Margin="5"/>
+                                    <TextBlock Text="{Binding Email}" Grid.Row="4" Margin="5"/>
+                                    <TextBlock Text="{Binding SitioWeb}" Grid.Row="5" Margin="5"/>
+
+                                    <!-- Botón -->
+                                    <Button Content="Ver Más" Width="80" Margin="5" Click="BtnVerMas_Click"/>
+                                </StackPanel>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+                </Grid>
+            </StackPanel>
+        </Grid>
+    </ScrollViewer>
+</Window>
