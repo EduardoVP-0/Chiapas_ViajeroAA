@@ -5,7 +5,7 @@ using System.Windows.Media.Animation;
 using System.Windows.Media.Imaging;
 using System.Windows.Threading;
 using System.IO;
-
+using Chiapas_ViajeroAA;
 
 namespace Pagina_Principal
 {
@@ -26,9 +26,45 @@ namespace Pagina_Principal
         public Home()
         {
             InitializeComponent();
+            Logueado.Content = App.UsuarioLogueado;
+            CargarImagenUsuario();
             IniciarCarrusel();
             MostrarUltimos4Logos();
 
+        }
+
+        private void CargarImagenUsuario()
+        {
+            if (!string.IsNullOrEmpty(App.NombreArchivoFoto))
+            {
+                try
+                {
+                    string carpetaFotos = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Fotos");
+                    string rutaCompleta = Path.Combine(carpetaFotos, App.NombreArchivoFoto);
+
+                    if (File.Exists(rutaCompleta))
+                    {
+                        ImgLogueado.Source = new BitmapImage(new Uri(rutaCompleta));
+                    }
+                    else
+                    {
+                        // Opcional: Cargar una imagen por defecto si no existe
+                        ImgLogueado.Source = new BitmapImage(
+                            new Uri("pack://application:,,,/Recursos/imagen_default.png"));
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("Error al cargar imagen: " + ex.Message);
+                    // Opcional: Mostrar imagen por defecto en caso de error
+                }
+            }
+        }
+
+        protected override void OnActivated(EventArgs e)
+        {
+            base.OnActivated(e);
+            Logueado.Content = App.UsuarioLogueado;
         }
 
         private void IniciarCarrusel()
@@ -69,12 +105,12 @@ namespace Pagina_Principal
             this.Close();
         }
 
+        // Modifica el método Btn_Registros en Home.xaml.cs para que quede así:
         private void Btn_Registros(object sender, RoutedEventArgs e)
         {
             Gestion_Operadora ventanaRegistro = new Gestion_Operadora();
             ventanaRegistro.Show();
-
-            this.Close();
+            this.Hide(); // Cambia Close() por Hide()
         }
 
         //Mostrar las 4 ULtimas Fotos de las operadoras
@@ -122,11 +158,5 @@ namespace Pagina_Principal
                 MessageBox.Show("Error al cargar las imágenes de operadoras: " + ex.Message);
             }
         }
-
-
-
-
-
-
     }
 }

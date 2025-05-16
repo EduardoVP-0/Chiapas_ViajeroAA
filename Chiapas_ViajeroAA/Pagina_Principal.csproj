@@ -279,9 +279,7 @@
   <ItemGroup>
     <Resource Include="img\Operadoras.png" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Operadoras\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Resource Include="Home.jpg" />
   </ItemGroup>

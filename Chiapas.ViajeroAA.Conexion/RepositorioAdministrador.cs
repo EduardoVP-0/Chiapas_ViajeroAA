@@ -15,21 +15,28 @@ namespace Chiapas.ViajeroAA.Conexion
             _conexion = new Conexion(); // ← Sin "Conexion" al inicio
         }
 
-        public bool ValidarCredenciales(string email, string contraseña)
+        public (string Nombre, string NombreArchivoFoto) ObtenerDatosUsuario(string email, string contraseña)
         {
             using (var conn = _conexion.ObtenerConexion())
             {
-                string query = "SELECT COUNT(*) FROM administrador WHERE email = @Email AND contraseña = @Password";
+                string query = "SELECT usuario, foto FROM administrador WHERE email = @Email AND contraseña = @Password";
 
                 using (var cmd = new MySqlCommand(query, conn))
                 {
                     cmd.Parameters.AddWithValue("@Email", email);
                     cmd.Parameters.AddWithValue("@Password", contraseña);
 
-                    int count = Convert.ToInt32(cmd.ExecuteScalar());
-                    return count > 0;
+                    using (var reader = cmd.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            return (reader["usuario"].ToString(),
+                                    reader["foto"].ToString());
+                        }
+                    }
                 }
             }
+            return (null, null);
         }
     }
     }

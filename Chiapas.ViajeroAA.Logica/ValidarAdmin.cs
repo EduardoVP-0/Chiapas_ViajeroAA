@@ -16,9 +16,9 @@ namespace Chiapas.ViajeroAA.Logica
             _repositorio = new RepositorioAdministrador();
         }
 
-        public bool IniciarSesion(string email, string contraseña)
+        public (string Nombre, string NombreArchivoFoto) ObtenerDatosUsuario(string email, string contraseña)
         {
-            return _repositorio.ValidarCredenciales(email, contraseña);
+            return _repositorio.ObtenerDatosUsuario(email, contraseña);
         }
     }
 }

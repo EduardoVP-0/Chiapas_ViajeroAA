@@ -2,6 +2,7 @@
 using System.Windows.Input;
 using System.Windows.Media;
 using Chiapas.ViajeroAA.Logica;
+using Chiapas_ViajeroAA;
 
 namespace Pagina_Principal
 {
@@ -88,12 +89,14 @@ namespace Pagina_Principal
                 return;
             }
 
-            bool accesoPermitido = _servicio.IniciarSesion(email, contraseña);
+            // Declaramos explícitamente la variable datosUsuario
+            (string Nombre, string NombreArchivoFoto) datosUsuario = _servicio.ObtenerDatosUsuario(email, contraseña);
 
-            if (accesoPermitido)
+            if (datosUsuario.Nombre != null)
             {
-                MessageBox.Show("¡Acceso correcto!");
-                // Abrir la ventana principal
+                App.UsuarioLogueado = datosUsuario.Nombre;
+                App.NombreArchivoFoto = datosUsuario.NombreArchivoFoto;
+
                 Home ventana = new Home();
                 ventana.Show();
                 this.Close();
