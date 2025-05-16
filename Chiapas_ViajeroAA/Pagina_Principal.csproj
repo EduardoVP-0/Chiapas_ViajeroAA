@@ -163,6 +163,9 @@
     <Compile Include="Registros_Datos.xaml.cs">
       <DependentUpon>Registros_Datos.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Usuarios.xaml.cs">
+      <DependentUpon>Usuarios.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Window1.xaml.cs">
       <DependentUpon>Window1.xaml</DependentUpon>
     </Compile>
@@ -205,6 +208,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="Registros_Datos.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Usuarios.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

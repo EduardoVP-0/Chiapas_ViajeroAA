@@ -158,5 +158,12 @@ namespace Pagina_Principal
                 MessageBox.Show("Error al cargar las imágenes de operadoras: " + ex.Message);
             }
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            Usuarios ventanaUsuarios = new Usuarios();
+            ventanaUsuarios.Show();
+            this.Hide(); // Cambia Close() por Hide()
+        }
     }
 }
