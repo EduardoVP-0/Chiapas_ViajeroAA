@@ -23,13 +23,13 @@
                     </Grid.RowDefinitions>
 
                     <!-- Encabezados -->
-                    <TextBlock Text="ID" FontWeight="Bold" Grid.Row="0"/>
-                    <TextBlock Text="Nombre Operadora" FontWeight="Bold" Grid.Row="1"/>
-                    <TextBlock Text="Logo" FontWeight="Bold" Grid.Row="2"/>
-                    <TextBlock Text="Representante" FontWeight="Bold" Grid.Row="3"/>
-                    <TextBlock Text="Email" FontWeight="Bold" Grid.Row="4"/>
-                    <TextBlock Text="Sitio Web" FontWeight="Bold" Grid.Row="5"/>
-                    <TextBlock Text="Ver Más" FontWeight="Bold" Grid.Row="6"/>
+                    <TextBlock Text="" FontWeight="Bold" Grid.Row="0"/>
+                    <TextBlock Text="" FontWeight="Bold" Grid.Row="1"/>
+                    <TextBlock Text="" FontWeight="Bold" Grid.Row="2"/>
+                    <TextBlock Text="" FontWeight="Bold" Grid.Row="3"/>
+                    <TextBlock Text="" FontWeight="Bold" Grid.Row="4"/>
+                    <TextBlock Text="" FontWeight="Bold" Grid.Row="5"/>
+                    <TextBlock Text="" FontWeight="Bold" Grid.Row="6"/>
 
                     <!-- Datos -->
                     <ItemsControl ItemsSource="{Binding Operadoras}">
