@@ -45,11 +45,7 @@
                                     <TextBlock Text="{Binding NombreOperadora}" Grid.Row="1" Margin="5"/>
 
                                     <!-- Imagen -->
-                                    <Image Width="80" Height="80" Margin="5">
-                                        <Image.Source>
-                                            <BitmapImage UriSource="{Binding LogoRuta}" />
-                                        </Image.Source>
-                                    </Image>
+                                    <Image Source="{Binding LogoImagen}" Width="100" Height="100"/>
 
                                     <TextBlock Text="{Binding Representante}" Grid.Row="3" Margin="5"/>
                                     <TextBlock Text="{Binding Email}" Grid.Row="4" Margin="5"/>

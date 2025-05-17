@@ -37,7 +37,20 @@ namespace Pagina_Principal
             TxtTelefono.Text = operadora.Telefono;
 
             string rutaImagen = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Fotos", operadora.Logo);
-            ImgLogo.Source = new BitmapImage(new Uri(rutaImagen));
+            if (File.Exists(rutaImagen))
+            {
+                BitmapImage imagen = new BitmapImage();
+                imagen.BeginInit();
+                imagen.UriSource = new Uri(rutaImagen, UriKind.Absolute);
+                imagen.CacheOption = BitmapCacheOption.OnLoad;
+                imagen.EndInit();
+
+                ImgLogo.Source = imagen;
+            }
+            else
+            {
+                MessageBox.Show("No se encontró el archivo de imagen: " + rutaImagen, "Error de imagen", MessageBoxButton.OK, MessageBoxImage.Warning);
+            }
         }
     }
 }

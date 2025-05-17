@@ -40,12 +40,17 @@ namespace Pagina_Principal
             foreach (var item in lista)
             {
                 string rutaImagen = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Fotos", item.Logo);
+                var imagen = new BitmapImage();
+                imagen.BeginInit();
+                imagen.UriSource = new Uri(rutaImagen, UriKind.Absolute);
+                imagen.CacheOption = BitmapCacheOption.OnLoad;
+                imagen.EndInit();
 
                 Operadoras.Add(new OperadoraUI
                 {
                     Id = item.Id,
                     NombreOperadora = item.NombreOperadora,
-                    LogoRuta = new Uri(rutaImagen, UriKind.Absolute),
+                    LogoImagen = imagen,
                     Representante = item.Representante,
                     Email = item.Email,
                     SitioWeb = item.SitioWeb,
@@ -69,7 +74,7 @@ namespace Pagina_Principal
         {
             public int Id { get; set; }
             public string NombreOperadora { get; set; }
-            public Uri LogoRuta { get; set; }
+            public BitmapImage LogoImagen { get; set; }
             public string Representante { get; set; }
             public string Email { get; set; }
             public string SitioWeb { get; set; }
