@@ -5,8 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Pagina_Principal"
         mc:Ignorable="d"
-        Title="Home" WindowState="Maximized" 
-        WindowStartupLocation="CenterScreen">
+        Title="Home" 
+        WindowState="Maximized" 
+        WindowStartupLocation="CenterScreen"
+        ResizeMode="CanResize">
 
     <Window.Resources>
         <!-- Animación de transición fade in/out -->
@@ -16,167 +18,175 @@
         </Storyboard>
     </Window.Resources>
 
-    <Viewbox Stretch="Fill">
+    <!-- ESTRUCTURA PRINCIPAL -->
+    <Grid>
+        <!-- 1. CAPA DE FONDO INDEPENDIENTE -->
+        <Viewbox Name="ViewboxFondo" Stretch="UniformToFill" Margin="-20,-21,0,-14">
+            <Image Source="img/fondoHome.png" Stretch="None" RenderOptions.BitmapScalingMode="HighQuality" Width="978" RenderTransformOrigin="0.5,0.5">
+                <Image.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform AngleY="-0.181"/>
+                        <RotateTransform/>
+                        <TranslateTransform Y="-1.867"/>
+                    </TransformGroup>
+                </Image.RenderTransform>
+            </Image>
+        </Viewbox>
 
-        <Grid Width="1355" Height="710">
+        <!-- 2. CAPA DE CONTENIDO -->
+        <Viewbox Stretch="Fill">
+            <Grid Width="1355" Height="710" Background="Transparent">
 
-            <!-- FONDO DE LA HOJA -->
-            <Grid.Background>
-                <ImageBrush ImageSource="img/fondoHome.png" Stretch="Fill" RenderOptions.BitmapScalingMode="HighQuality"/>
-            </Grid.Background>
+                <!-- LOGO -->
+                <Image Source="img/LogoHome.png" Margin="-35,5,1077,600"/>
 
-            <!--LOGO DE CHIAPAS VIAJERO-->
-            <Image Source="img/LogoHome.png" Margin="-35,5,1077,600"/>
-
-            <!--MENU Y PERFIL-->
-
-            <Button Name="BtnRegistro" Content="Registro" HorizontalAlignment="Left" Margin="321,43,0,0" VerticalAlignment="Top"
-                Width="142" FontFamily="Poppins" FontSize="23" FontWeight="Bold" Foreground="Black" Background="Transparent" BorderThickness="0" Click="Btn_Registros" Height="36">
-                <Button.Template>
-                    <ControlTemplate TargetType="Button">
-                        <Border x:Name="border" Background="Transparent" CornerRadius="20" BorderThickness="0">
-                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                        </Border>
-                        <ControlTemplate.Triggers>
-                            <Trigger Property="IsMouseOver" Value="True">
-                                <Setter TargetName="border" Property="Background" Value="#B6C2D4"/>
-                                <!-- gris oscuro opaco -->
-                            </Trigger>
-                            <Trigger Property="IsPressed" Value="True">
-                                <Setter TargetName="border" Property="Background" Value="#AA000000"/>
-                                <!-- un poco más oscuro al hacer clic -->
-                            </Trigger>
-                        </ControlTemplate.Triggers>
-                    </ControlTemplate>
-                </Button.Template>
-            </Button>
-
-
-
-            <Button Content="Usuarios" HorizontalAlignment="Left" Margin="477,43,0,0" VerticalAlignment="Top" Width="142" FontFamily="Poppins" FontSize="23" FontWeight="Bold" Foreground="Black" Background="Transparent" BorderThickness="0" Height="36" Click="Button_Click">
-                <Button.Template>
-                    <ControlTemplate TargetType="Button">
-                        <Border x:Name="border" Background="Transparent" CornerRadius="20" BorderThickness="0">
-                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                        </Border>
-                        <ControlTemplate.Triggers>
-                            <Trigger Property="IsMouseOver" Value="True">
-                                <Setter TargetName="border" Property="Background" Value="#B6C2D4"/>
-                                <!-- gris oscuro opaco -->
-                            </Trigger>
-                            <Trigger Property="IsPressed" Value="True">
-                                <Setter TargetName="border" Property="Background" Value="#AA000000"/>
-                                <!-- más oscuro al presionar -->
-                            </Trigger>
-                        </ControlTemplate.Triggers>
-                    </ControlTemplate>
-                </Button.Template>
-            </Button>
-
-
-            <Button Content="Estadísticas" HorizontalAlignment="Left" Margin="642,43,0,0" VerticalAlignment="Top" Width="165" FontFamily="Poppins" FontSize="23" FontWeight="Bold" Foreground="Black" Background="Transparent" BorderThickness="0" Height="36" Click="Button_Click_3">
-                <Button.Template>
-                    <ControlTemplate TargetType="Button">
-                        <Border x:Name="border" Background="Transparent" CornerRadius="20" BorderThickness="0">
-                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                        </Border>
-                        <ControlTemplate.Triggers>
-                            <Trigger Property="IsMouseOver" Value="True">
-                                <Setter TargetName="border" Property="Background" Value="#B6C2D4"/>
-                                <!-- gris oscuro opaco -->
-                            </Trigger>
-                            <Trigger Property="IsPressed" Value="True">
-                                <Setter TargetName="border" Property="Background" Value="#AA000000"/>
-                                <!-- más oscuro al presionar -->
-                            </Trigger>
-                        </ControlTemplate.Triggers>
-                    </ControlTemplate>
-                </Button.Template>
-            </Button>
-
-
-            <!--PERFIL-->
-            <Border CornerRadius="16" Background="#80E7E6E6" Margin="1034,37,141,615">
-                <Button Background="Transparent" BorderThickness="0" Padding="10" HorizontalContentAlignment="Left" Cursor="Hand" Click="Btn_Perfil">
+                <!-- BARRA DE MENÚ -->
+                <Button Name="BtnRegistro" Content="Registro" 
+                        HorizontalAlignment="Left" Margin="321,43,0,0" VerticalAlignment="Top"
+                        Width="142" FontFamily="Poppins" FontSize="23" FontWeight="Bold" 
+                        Foreground="Black" Background="Transparent" BorderThickness="0" 
+                        Click="Btn_Registros" Height="36">
                     <Button.Template>
                         <ControlTemplate TargetType="Button">
-                            <ContentPresenter/>
+                            <Border x:Name="border" Background="Transparent" CornerRadius="20" BorderThickness="0">
+                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            </Border>
+                            <ControlTemplate.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter TargetName="border" Property="Background" Value="#B6C2D4"/>
+                                </Trigger>
+                                <Trigger Property="IsPressed" Value="True">
+                                    <Setter TargetName="border" Property="Background" Value="#AA000000"/>
+                                </Trigger>
+                            </ControlTemplate.Triggers>
                         </ControlTemplate>
                     </Button.Template>
-
-                    <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
-                        <!-- Imagen del perfil -->
-                        <Image Name="ImgLogueado" Width="53" Height="39" Margin="0,0,8,0"/>
-
-                        <!-- Texto -->
-                        <TextBlock Text=" Perfil " FontSize="22" FontFamily="Poppins" FontWeight="DemiBold" Foreground="Black" VerticalAlignment="Center" Margin="0,0,8,0"/>
-                        <TextBlock Text="▼" FontSize="16" FontFamily="Poppins" Foreground="Black" VerticalAlignment="Center"/>
-                    </StackPanel>
                 </Button>
-            </Border>
 
-            <!--Boton para ver las operadoras-->
+                <Button Content="Usuarios" 
+                        HorizontalAlignment="Left" Margin="477,43,0,0" VerticalAlignment="Top" 
+                        Width="142" FontFamily="Poppins" FontSize="23" FontWeight="Bold" 
+                        Foreground="Black" Background="Transparent" BorderThickness="0" 
+                        Height="36" Click="Button_Click">
+                    <Button.Template>
+                        <ControlTemplate TargetType="Button">
+                            <Border x:Name="border" Background="Transparent" CornerRadius="20" BorderThickness="0">
+                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            </Border>
+                            <ControlTemplate.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter TargetName="border" Property="Background" Value="#B6C2D4"/>
+                                </Trigger>
+                                <Trigger Property="IsPressed" Value="True">
+                                    <Setter TargetName="border" Property="Background" Value="#AA000000"/>
+                                </Trigger>
+                            </ControlTemplate.Triggers>
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
 
+                <Button Content="Estadísticas" 
+                        HorizontalAlignment="Left" Margin="642,43,0,0" VerticalAlignment="Top" 
+                        Width="165" FontFamily="Poppins" FontSize="23" FontWeight="Bold" 
+                        Foreground="Black" Background="Transparent" BorderThickness="0" 
+                        Height="36" Click="Button_Click_3">
+                    <Button.Template>
+                        <ControlTemplate TargetType="Button">
+                            <Border x:Name="border" Background="Transparent" CornerRadius="20" BorderThickness="0">
+                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            </Border>
+                            <ControlTemplate.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter TargetName="border" Property="Background" Value="#B6C2D4"/>
+                                </Trigger>
+                                <Trigger Property="IsPressed" Value="True">
+                                    <Setter TargetName="border" Property="Background" Value="#AA000000"/>
+                                </Trigger>
+                            </ControlTemplate.Triggers>
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
 
-            <!--Salir del home-->
-            <Button Background="Transparent" BorderThickness="0" Cursor="Hand" Margin="1245,49,58,627" Click="BtnSalir">
-                <Button.Template>
-                    <ControlTemplate TargetType="Button">
-                        <ContentPresenter/>
-                    </ControlTemplate>
-                </Button.Template>
-                <Image Source="BotonA.png" Stretch="Uniform"/>
-            </Button>
-
-            <!--Sección de Ranking-->
-            <Border CornerRadius="22" BorderBrush="#FFFFFF" BorderThickness="0" Background="#30E7E6E6" Margin="10,124,892,227" ClipToBounds="True">
-                <Image Source="img/Ranking.png" Stretch="Fill" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
-            </Border>
-
-            <!--Comentarios Destacados-->
-            <Border CornerRadius="22" BorderBrush="#FFFFFF" BorderThickness="0" Background="#30E7E6E6" Margin="10,497,892,10" ClipToBounds="True">
-                <Image Source="img/Comentarios.png" Stretch="Fill" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
-            </Border>
-
-            <!--CARRUSEL DE IMAGENES-->
-            <Grid ClipToBounds="True" Margin="510,124,10,211">
-                <Border BorderBrush="#FFFFFF" BorderThickness="0" CornerRadius="15" Background="#30E7E6E6">
-                    <Image Name="CarruselImage" Stretch="Fill" Opacity="0"/>
+                <!-- PERFIL -->
+                <Border CornerRadius="16" Background="#80E7E6E6" Margin="1034,37,141,615">
+                    <Button Background="Transparent" BorderThickness="0" Padding="10" 
+                            HorizontalContentAlignment="Left" Cursor="Hand" Click="Btn_Perfil">
+                        <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                            <Image Name="ImgLogueado" Width="53" Height="39" Margin="0,0,8,0"/>
+                            <TextBlock Text=" Perfil " FontSize="22" FontFamily="Poppins" 
+                                       FontWeight="DemiBold" Foreground="Black" VerticalAlignment="Center" Margin="0,0,8,0"/>
+                            <TextBlock Text="▼" FontSize="16" FontFamily="Poppins" 
+                                       Foreground="Black" VerticalAlignment="Center"/>
+                        </StackPanel>
+                    </Button>
                 </Border>
+
+                <!-- BOTÓN SALIR -->
+                <Button Background="Transparent" BorderThickness="0" Cursor="Hand" 
+                        Margin="1245,49,58,627" Click="BtnSalir">
+                    <Image Source="BotonA.png" Stretch="Uniform"/>
+                </Button>
+
+                <!-- SECCIÓN RANKING -->
+                <Border CornerRadius="22" BorderBrush="#FFFFFF" BorderThickness="0" 
+                        Background="#30E7E6E6" Margin="10,124,892,227" ClipToBounds="True">
+                    <Image Source="img/Ranking.png" Stretch="Fill"/>
+                </Border>
+
+                <!-- SECCIÓN COMENTARIOS -->
+                <Border CornerRadius="22" BorderBrush="#FFFFFF" BorderThickness="0" 
+                        Background="#30E7E6E6" Margin="10,497,892,10" ClipToBounds="True">
+                    <Image Source="img/Comentarios.png" Stretch="Fill"/>
+                </Border>
+
+                <!-- CARRUSEL -->
+                <!-- **CARRUSEL DE IMÁGENES** -->
+                <Grid ClipToBounds="True" Margin="510,124,10,211">
+                    <Border BorderBrush="#FFFFFF" BorderThickness="0" CornerRadius="15" Background="#30E7E6E6">
+                        <Image Name="CarruselImage" Stretch="Fill" Opacity="0"/>
+                    </Border>
+                </Grid>
+
+                <!-- OPERADORAS RECIENTES -->
+                <Label Content="Operadoras Recientes" HorizontalAlignment="Left" Margin="487,504,0,0" 
+                       VerticalAlignment="Top" Width="419" FontFamily="Poppins" FontSize="24" FontWeight="DemiBold" Height="36"/>
+
+                <!-- TARJETAS DE OPERADORAS (COMPLETAS) -->
+                <Border BorderBrush="#FFFFFF" BorderThickness="0" CornerRadius="15" Background="#99E7E6E6" Margin="477,553,651,29">
+                    <Image Name="Image1" Stretch="Fill" Opacity="1" Margin="0,0,10,10"/>
+                </Border>
+
+                <Border BorderBrush="#FFFFFF" BorderThickness="0" CornerRadius="15" Background="#99E7E6E6" Margin="709,553,431,29">
+                    <Image Name="Image2" Stretch="Fill" Opacity="1" Margin="0,0,10,10"/>
+                </Border>
+
+                <Border BorderBrush="#FFFFFF" BorderThickness="0" CornerRadius="15" Background="#99E7E6E6" Margin="929,553,210,29">
+                    <Image Name="Image3" Stretch="Fill" Opacity="1" Margin="0,0,10,10"/>
+                </Border>
+
+                <Border BorderBrush="#FFFFFF" BorderThickness="0" CornerRadius="15" Background="#99E7E6E6" Margin="1150,553,10,29">
+                    <Image Name="Image4" Stretch="Fill" Opacity="1" Margin="0,0,10,10"/>
+                </Border>
+
+                <!-- BOTÓN VER TODAS -->
+                <Button Content="Ver todas" FontFamily="Poppins" Margin="1185,504,10,174" 
+                        Background="#505D89" Foreground="White" FontSize="18" BorderBrush="#505D89" 
+                        Click="Button_Click_2">
+                    <Button.Template>
+                        <ControlTemplate TargetType="Button">
+                            <Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" 
+                                    BorderThickness="1" CornerRadius="16">
+                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            </Border>
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+
+                <!-- USUARIO LOGUEADO -->
+                <Label Name="Logueado" Visibility="Collapsed" Content="" HorizontalAlignment="Left" Margin="498,74,0,0" 
+                       VerticalAlignment="Top" Width="519" FontFamily="Poppins" FontSize="24" FontWeight="DemiBold" Height="36"/>
             </Grid>
-
-            <!--SECCIÓN DE VER TODAS LAS OPERADORAS-->
-            <Border  BorderBrush="#FFFFFF" BorderThickness="0" CornerRadius="15" Background="#99E7E6E6" Margin="477,553,651,29">
-                <Image Name="Image1"  Stretch="Fill" Opacity="1" Margin="0,0,10,10"/>
-            </Border>
-            <Border  BorderBrush="#FFFFFF" BorderThickness="0" CornerRadius="15" Background="#99E7E6E6" Margin="709,553,431,29">
-                <Image Name="Image2" Stretch="Fill" Opacity="1" Margin="0,0,10,10"/>
-            </Border>
-            <Border  BorderBrush="#FFFFFF" BorderThickness="0" CornerRadius="15" Background="#99E7E6E6" Margin="929,553,210,29">
-                <Image Name="Image3"  Stretch="Fill" Opacity="1" Margin="0,0,10,10"/>
-            </Border>
-            <Border  BorderBrush="#FFFFFF" BorderThickness="0" CornerRadius="15" Background="#99E7E6E6" Margin="1150,553,10,29">
-                <Image Name="Image4"  Stretch="Fill" Opacity="1" Margin="0,0,10,10"/>
-            </Border>
-
-            <!--Ver todas las operadoras-->
-            <Button Content="Ver todas"  FontFamily="Poppins" Margin="1205,504,10,180" Background="#505D89" Foreground="White"   FontSize="16" BorderBrush="#505D89" Click="Button_Click_2" >
-                <Button.Template>
-                    <ControlTemplate TargetType="Button">
-                        <Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}"  BorderThickness="1" CornerRadius="16">
-                            <ContentPresenter HorizontalAlignment="Center"  VerticalAlignment="Center" />
-                        </Border>
-                    </ControlTemplate>
-                </Button.Template>
-            </Button>
-            <Label Content="Operadoras Recientes" HorizontalAlignment="Left" Margin="487,504,0,0" 
-                VerticalAlignment="Top" Width="419" FontFamily="Poppins" FontSize="24" FontWeight="DemiBold" Height="36"/>
-
-            <Label Name="Logueado" Content="" HorizontalAlignment="Left" Margin="498,74,0,0" 
-                VerticalAlignment="Top" Width="519" FontFamily="Poppins" FontSize="24" FontWeight="DemiBold" Height="36"/>
-
-        </Grid>
-
-    </Viewbox>
-
+        </Viewbox>
+    </Grid>
 </Window>

@@ -70,6 +70,14 @@ namespace Pagina_Principal
             }
         }
 
+        private void BtnHome3(object sender,RoutedEventArgs e)
+        {
+            Home ventanaHome3 = new Home();
+            ventanaHome3.Show();
+
+            this.Close();
+        }
+
         public class OperadoraUI
         {
             public int Id { get; set; }

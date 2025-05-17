@@ -4,7 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         WindowState="Maximized"
-        ResizeMode="NoResize"
+        ResizeMode="CanResize"
         Background="#FAFAFA"
         xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
         xmlns:local="clr-namespace:Pagina_Principal"
@@ -13,34 +13,48 @@
         FontFamily="Poppins">
     
     <Grid Margin="20">
+
+        <Border Margin="-14,129,-13,-14" Background="#F2F2F2" 
+                    BorderBrush="#CCCCCC" BorderThickness="1">
+            <Border.Effect>
+                <DropShadowEffect ShadowDepth="0" Color="#CCCCCC" 
+                          Opacity="0.5" BlurRadius="10"/>
+            </Border.Effect>
+
+        </Border>
+
         <Button Width="40" Height="40" HorizontalAlignment="Right" VerticalAlignment="Top"
-                Margin="0,10,10,0" Cursor="Hand" Background="Transparent" BorderThickness="0" Click="Button_Click">
+                Margin="0,-14,13,0" Cursor="Hand" Background="Transparent" BorderThickness="0" Click="Button_Click">
             <Image Source="Home.jpg" Stretch="UniformToFill"/>
         </Button>
         <StackPanel VerticalAlignment="Center">
-            <TextBlock Text="Estadísticas Generales" FontSize="30" FontWeight="Bold" Margin="0 0 0 80"
+            <TextBlock Text="Estadísticas Generales" FontSize="30" FontWeight="Bold" Margin="0 0 0 120"
                            HorizontalAlignment="Center"/>
 
             <UniformGrid Columns="6" Rows="1" Margin="0 0 0 20">
-                <TextBlock Text="Total Operadoras:" FontWeight="Bold" Foreground="#767171" VerticalAlignment="Center"/>
+                <TextBlock Text="Total Operadoras:" FontWeight="Bold" FontSize="16" Foreground="#767171" VerticalAlignment="Center"/>
                 <TextBlock x:Name="TxtTotalOperadoras" Margin="5,0" VerticalAlignment="Center"/>
 
-                <TextBlock Text="Total Administradores:" FontWeight="Bold" Foreground="#767171" VerticalAlignment="Center"/>
+                <TextBlock Text="Total Administradores:" FontWeight="Bold" FontSize="16" Foreground="#767171" VerticalAlignment="Center"/>
                 <TextBlock x:Name="TxtTotalAdministradores" Margin="5,0" VerticalAlignment="Center"/>
 
-                <TextBlock Text="Top Operadora:" FontWeight="Bold" Foreground="#767171" VerticalAlignment="Center"/>
-                <TextBlock x:Name="TxtTopOperadora" Margin="5,0" VerticalAlignment="Center"/>
+                <TextBlock Text="Top Operadora:" FontWeight="Bold" FontSize="16" Foreground="#767171" VerticalAlignment="Center"/>
+                <TextBlock x:Name="TxtTopOperadora" Margin="5,0"  VerticalAlignment="Center"/>
             </UniformGrid>
 
             <lvc:CartesianChart Series="{Binding SeriesCollection}" LegendLocation="Right" Height="350" Margin="0,10,0,0"
-                                    Background="#F5F5F5">
+                                    Background="#F2F2F2">
                 <lvc:CartesianChart.AxisX>
-                    <lvc:Axis Title="Operadoras" Labels="{Binding Labels}" ></lvc:Axis>
+                    <lvc:Axis Title="Operadoras" FontWeight="DemiBold" FontSize="12" Foreground="Black" Labels="{Binding Labels}" ></lvc:Axis>
                 </lvc:CartesianChart.AxisX>
                 <lvc:CartesianChart.AxisY>
-                    <lvc:Axis Title="Reservaciones"></lvc:Axis>
+                    <lvc:Axis Title=""></lvc:Axis>
                 </lvc:CartesianChart.AxisY>
             </lvc:CartesianChart>
         </StackPanel>
+        
+        
+        
+        
     </Grid>
 </Window>
