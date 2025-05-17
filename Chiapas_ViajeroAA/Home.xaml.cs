@@ -166,10 +166,11 @@ namespace Pagina_Principal
             this.Hide(); // Cambia Close() por Hide()
         }
 
-        private void Btn_Perfil(object sender, RoutedEventArgs e)
+        private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            Perfil ventanaperfil = new Perfil();
-            ventanaperfil.Show();
+            Operadoras_Todas ventanaOperadoras = new Operadoras_Todas();
+            ventanaOperadoras.Show();
+            this.Hide(); // Cambia Close() por Hide()
         }
     }
 }

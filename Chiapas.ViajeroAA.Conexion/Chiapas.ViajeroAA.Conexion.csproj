@@ -142,6 +142,7 @@
     <Compile Include="Conexion.cs" />
     <Compile Include="DatosOperadora.cs" />
     <Compile Include="operadoraEliminar.cs" />
+    <Compile Include="OperadoraTuristica.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RepositorioAdministrador.cs" />
