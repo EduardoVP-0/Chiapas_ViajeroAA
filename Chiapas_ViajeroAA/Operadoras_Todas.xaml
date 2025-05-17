@@ -5,60 +5,78 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Pagina_Principal"
         mc:Ignorable="d"
-        Title="Operadoras_Todas" Height="450" Width="800">
-    <ScrollViewer HorizontalScrollBarVisibility="Auto">
-        <Grid Margin="20">
-            <StackPanel Orientation="Vertical">
-                <TextBlock Text="OPERADORAS TURÍSTICAS" FontSize="24" FontWeight="Bold" Margin="0,0,0,20"/>
+        Title="Operadoras_Todas" WindowState="Maximized" 
+        WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
 
-                <Grid>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="Auto"/>
-                        <RowDefinition Height="Auto"/>
-                        <RowDefinition Height="Auto"/>
-                        <RowDefinition Height="Auto"/>
-                        <RowDefinition Height="Auto"/>
-                        <RowDefinition Height="Auto"/>
-                        <RowDefinition Height="Auto"/>
-                    </Grid.RowDefinitions>
+        <!-- Título fijo (sin scroll) -->
+        <TextBlock Text="TODAS LAS OPERADORAS" 
+                  FontSize="24" 
+                  FontWeight="Bold" 
+                  Margin="110,50,20,20"
+                  Grid.Row="0"/>
 
-                    <!-- Encabezados -->
-                    <TextBlock Text="" FontWeight="Bold" Grid.Row="0"/>
-                    <TextBlock Text="" FontWeight="Bold" Grid.Row="1"/>
-                    <TextBlock Text="" FontWeight="Bold" Grid.Row="2"/>
-                    <TextBlock Text="" FontWeight="Bold" Grid.Row="3"/>
-                    <TextBlock Text="" FontWeight="Bold" Grid.Row="4"/>
-                    <TextBlock Text="" FontWeight="Bold" Grid.Row="5"/>
-                    <TextBlock Text="" FontWeight="Bold" Grid.Row="6"/>
-
-                    <!-- Datos -->
-                    <ItemsControl ItemsSource="{Binding Operadoras}">
-                        <ItemsControl.ItemsPanel>
-                            <ItemsPanelTemplate>
-                                <StackPanel Orientation="Horizontal"/>
-                            </ItemsPanelTemplate>
-                        </ItemsControl.ItemsPanel>
-                        <ItemsControl.ItemTemplate>
-                            <DataTemplate>
-                                <StackPanel Orientation="Vertical" Margin="20,0">
-                                    <TextBlock Text="{Binding Id}" Grid.Row="0" Margin="5"/>
-                                    <TextBlock Text="{Binding NombreOperadora}" Grid.Row="1" Margin="5"/>
-
-                                    <!-- Imagen -->
-                                    <Image Source="{Binding LogoImagen}" Width="100" Height="100"/>
-
-                                    <TextBlock Text="{Binding Representante}" Grid.Row="3" Margin="5"/>
-                                    <TextBlock Text="{Binding Email}" Grid.Row="4" Margin="5"/>
-                                    <TextBlock Text="{Binding SitioWeb}" Grid.Row="5" Margin="5"/>
-
-                                    <!-- Botón -->
-                                    <Button Content="Ver Más" Width="80" Margin="5" Click="BtnVerMas_Click"/>
-                                </StackPanel>
-                            </DataTemplate>
-                        </ItemsControl.ItemTemplate>
-                    </ItemsControl>
-                </Grid>
-            </StackPanel>
-        </Grid>
-    </ScrollViewer>
+        <!-- Contenedor solo para el scroll horizontal de operadoras -->
+        <ScrollViewer Grid.Row="1"
+                     HorizontalScrollBarVisibility="Auto"
+                     VerticalScrollBarVisibility="Disabled"
+                     Margin="0,0,20,20">
+            <ItemsControl ItemsSource="{Binding Operadoras}">
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <StackPanel Orientation="Horizontal"/>
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Vertical" 
+                                   Margin="20,10"
+                                   Width="290"> <!-- Ancho fijo para consistencia -->
+                            <TextBlock Text="{Binding Id}" Margin="5" Visibility="Collapsed"/>
+                            <TextBlock Text="{Binding NombreOperadora}" Margin="5" FontWeight="Bold" Foreground="#455177" FontSize="22" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="0,18"/>
+                            <Image Source="{Binding LogoImagen}" 
+                                   Width="140" 
+                                   Height="100"
+                                   Margin="5"
+                                   HorizontalAlignment="Center"/>
+                            <TextBlock Text="{Binding Representante}" Margin="5" FontSize="16" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="0,16"/>
+                            <TextBlock Text="{Binding Email}" Margin="5" FontSize="16" 
+           HorizontalAlignment="Center" VerticalAlignment="Center" Padding="0,10">
+                                <TextBlock.Style>
+                                    <Style TargetType="TextBlock">
+                                        <Style.Triggers>
+                                            <Trigger Property="Text" Value="Desconocido">
+                                                <Setter Property="Foreground" Value="Black"/>
+                                            </Trigger>
+                                            <Trigger Property="Text" Value="">
+                                                <Setter Property="Foreground" Value="Black"/>
+                                            </Trigger>
+                                            <Trigger Property="Text" Value="{x:Null}">
+                                                <Setter Property="Foreground" Value="Black"/>
+                                            </Trigger>
+                                        </Style.Triggers>
+                                        <Setter Property="Foreground" Value="#0066CC"/>
+                                    </Style>
+                                </TextBlock.Style>
+                            </TextBlock>
+                            <TextBlock Text="{Binding SitioWeb}" Margin="5" FontSize="16" Foreground="#0066CC" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="0,0"/>
+                            <Button Content="Ver Más" Width="90" Height="30" FontSize="12" Margin="25" Click="BtnVerMas_Click" HorizontalAlignment="Center" Foreground="White">
+                                <Button.Template>
+                                    <ControlTemplate TargetType="Button">
+                                        <Border CornerRadius="12" Background="#455177" Padding="10,5">
+                                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                        </Border>
+                                    </ControlTemplate>
+                                </Button.Template>
+                            </Button>
+                        </StackPanel>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+        </ScrollViewer>
+    </Grid>
 </Window>

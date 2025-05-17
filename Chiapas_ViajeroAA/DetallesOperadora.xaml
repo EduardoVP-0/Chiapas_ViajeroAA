@@ -5,41 +5,175 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Pagina_Principal"
         mc:Ignorable="d"
-        Title="DetallesOperadora" Height="450" Width="800">
-    <Grid Margin="20">
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="150"/>
-            <ColumnDefinition Width="*"/>
-        </Grid.ColumnDefinitions>
-
-        <!-- Imagen -->
-        <Image x:Name="ImgLogo" Margin="250.6,23,273.6,279" Grid.Column="1"/>
+        Title="DetallesOperadora">
 
 
-        <StackPanel Grid.Column="0" Margin="0,120,10,0" VerticalAlignment="Top">
-            <TextBlock Text="ID:" Margin="0,5"/>
-            <TextBlock Text="Nombre:" Margin="0,5"/>
-            <TextBlock Text="Representante:" Margin="0,5"/>
-            <TextBlock Text="Email:" Margin="0,5"/>
-            <TextBlock Text="Sitio Web:" Margin="0,5"/>
-            <TextBlock Text="Descripción:" Margin="0,5"/>
-            <TextBlock Text="Dirección:" Margin="0,5"/>
-            <TextBlock Text="Identificación:" Margin="0,5"/>
-            <TextBlock Text="Lada:" Margin="0,5"/>
-            <TextBlock Text="Teléfono:" Margin="0,5"/>
-        </StackPanel>
+    <Viewbox Stretch="Fill">
+        <Grid Width="1355" Height="710">
 
-        <StackPanel Grid.Column="1" Margin="0,120,0,0" VerticalAlignment="Top">
-            <TextBox x:Name="TxtId" IsReadOnly="True" Margin="0,5"/>
-            <TextBox x:Name="TxtNombre" IsReadOnly="True" Margin="0,5"/>
-            <TextBox x:Name="TxtRepresentante" IsReadOnly="True" Margin="0,5"/>
-            <TextBox x:Name="TxtEmail" IsReadOnly="True" Margin="0,5"/>
-            <TextBox x:Name="TxtSitioWeb" IsReadOnly="True" Margin="0,5"/>
-            <TextBox x:Name="TxtDescripcion" IsReadOnly="True" Margin="0,5"/>
-            <TextBox x:Name="TxtDireccion" IsReadOnly="True" Margin="0,5"/>
-            <TextBox x:Name="TxtIdentificacion" IsReadOnly="True" Margin="0,5"/>
-            <TextBox x:Name="TxtLada" IsReadOnly="True" Margin="0,5"/>
-            <TextBox x:Name="TxtTelefono" IsReadOnly="True" Margin="0,5"/>
-        </StackPanel>
-    </Grid>
+            <Image Source="Chiapas.jpg" 
+       Stretch="Fill" 
+       HorizontalAlignment="Stretch"
+       VerticalAlignment="Stretch"
+       Margin="1016,0,0,0"/>
+
+            <TextBox x:Name="TxtId" Visibility="Collapsed" IsReadOnly="True" Margin="1065,320,84,316"/>
+
+            <!--CAJA Padre-->
+            <Border Margin="39,28,371,22" Background="#FAFAFA" 
+                    BorderBrush="#CCCCCC" BorderThickness="1">
+                <Border.Effect>
+                    <DropShadowEffect ShadowDepth="0" Color="#CCCCCC" 
+                          Opacity="0.5" BlurRadius="10"/>
+                </Border.Effect>
+
+            </Border>
+            <!--CAJA Hija-->
+            <Border Margin="560,320,454,41" Background="#F2F2F2" 
+                    BorderBrush="#CCCCCC" BorderThickness="1">
+
+
+            </Border>
+
+            <!-- Imagen -->
+            <Image x:Name="ImgLogo" Margin="72,61,953,445"/>
+             
+            <!--DESCRIPCIÓN-->
+            <TextBlock Text="Nombre de la Operadora" FontSize="20" FontFamily="Poppins" FontWeight="DemiBold" Margin="491,76,616,601"/>
+            <Border CornerRadius="16" BorderBrush="#90FFFFFF" BorderThickness="0" Background="#E7E6E6" Margin="470,109,454,553">
+                <TextBox x:Name="TxtNombre" IsReadOnly="True"
+                     FontSize="18"
+                     Background="Transparent"
+                     FontFamily="Poppins" FontWeight="Bold"
+                     BorderThickness="0"
+                     VerticalContentAlignment="Center"
+                     HorizontalContentAlignment="Center"
+                     Foreground="Black"
+                     AcceptsReturn="True"
+                     TextWrapping="Wrap"/>
+            </Border>
+            
+            
+            <TextBlock Text="Representante" FontSize="20" FontFamily="Poppins" FontWeight="DemiBold"  Background="#455177" Foreground="White" Padding="96,4" Margin="560,320,454,356"/>
+            <Border CornerRadius="16" BorderBrush="#90FFFFFF" BorderThickness="0" Background="#FAFAFA" Margin="582,389,482,282">
+                <TextBox x:Name="TxtRepresentante" IsReadOnly="True"
+                     FontSize="18"
+                     Background="Transparent"
+                     FontFamily="Poppins"
+                     BorderThickness="0"
+                     VerticalContentAlignment="Center"
+                     HorizontalContentAlignment="Center"
+                     Foreground="Black"
+                     AcceptsReturn="True"
+                     TextWrapping="Wrap"/>
+            </Border>
+            
+            
+            <TextBlock Text="Correo Electrónico" FontSize="20" FontFamily="Poppins" FontWeight="DemiBold" Margin="573,458,594,225"/>
+            <Border CornerRadius="16" BorderBrush="#90FFFFFF" BorderThickness="0" Background="#FAFAFA" Margin="582,496,482,175">
+                <TextBox x:Name="TxtEmail" IsReadOnly="True"
+                     FontSize="18"
+                     Background="Transparent"
+                     FontFamily="Poppins"
+                     BorderThickness="0"
+                     VerticalContentAlignment="Center"
+                     HorizontalContentAlignment="Center"
+                     Foreground="Black"
+                     AcceptsReturn="True"
+                     TextWrapping="Wrap"/>
+            </Border>
+            
+            <TextBlock Text="Sitio Web" FontSize="20" FontFamily="Poppins" FontWeight="DemiBold" Margin="491,175,631,502"/>
+            <Border CornerRadius="16" BorderBrush="#90FFFFFF" BorderThickness="0" Background="#E7E6E6" Margin="470,208,454,454">
+                <TextBox x:Name="TxtSitioWeb" IsReadOnly="True"
+                     FontSize="18"
+                     Background="Transparent"
+                     FontFamily="Poppins" FontWeight="SemiBold"
+                     BorderThickness="0"
+                     VerticalContentAlignment="Center"
+                     HorizontalContentAlignment="Center"
+                     Foreground="#0066CC"
+                     AcceptsReturn="True"
+                     TextWrapping="Wrap"/>
+            </Border>
+            
+            <TextBlock Text="Descripción:" FontSize="20" FontFamily="Poppins" FontWeight="DemiBold" Margin="72,287,1130,397"/>
+            <Border CornerRadius="16" BorderBrush="#90FFFFFF" BorderThickness="0" Background="#E7E6E6" Margin="72,329,856,259">
+                <TextBox x:Name="TxtDescripcion" IsReadOnly="True"
+                     FontSize="18"
+                     Background="Transparent"
+                     FontFamily="Poppins"
+                     BorderThickness="0"
+                     VerticalContentAlignment="Center"
+                     Padding="23,18"
+                     Foreground="Black"
+                     AcceptsReturn="True"
+                     TextWrapping="Wrap"/>
+            </Border>
+            
+            <TextBlock Text="Dirección:" FontSize="20" FontFamily="Poppins" FontWeight="DemiBold"  Margin="72,470,1130,202"/>
+            <Border CornerRadius="16" BorderBrush="#90FFFFFF" BorderThickness="0" Background="#E7E6E6" Margin="72,508,856,124">
+                <TextBox x:Name="TxtDireccion" IsReadOnly="True"
+                     FontSize="18"
+                     Background="Transparent"
+                     FontFamily="Poppins"
+                     BorderThickness="0"
+                     VerticalContentAlignment="Center"
+                     Padding="23,16"
+                     Foreground="Black"
+                     AcceptsReturn="True"
+                     TextWrapping="Wrap"/>
+            </Border>
+            
+            
+            <TextBlock Text="Número de Identificación" FontSize="20" FontFamily="Poppins" FontWeight="DemiBold" Margin="573,568,547,109"/>
+            <Border CornerRadius="16" BorderBrush="#90FFFFFF" BorderThickness="0" Background="#FAFAFA" Margin="582,606,482,65">
+                <TextBox  x:Name="TxtIdentificacion" IsReadOnly="True"
+                     FontSize="18"
+                     Background="Transparent"
+                     FontFamily="Poppins"
+                     BorderThickness="0"
+                     VerticalContentAlignment="Center"
+                     Padding="110,2"
+                     Foreground="Black"
+                     AcceptsReturn="True"
+                     TextWrapping="Wrap"/>
+            </Border>
+            
+            <TextBlock Text="Teléfono" FontSize="20" FontFamily="Poppins" FontWeight="DemiBold" Margin="72,618,1130,58"/>
+            <!--LADA-->
+            <Border CornerRadius="16" BorderBrush="#90FFFFFF" BorderThickness="0" Background="#E7E6E6" Margin="165,613,1080,58">
+                <TextBox x:Name="TxtLada" IsReadOnly="True"
+                     FontSize="18"
+                     Background="Transparent"
+                     FontFamily="Poppins"
+                     BorderThickness="0"
+                     VerticalContentAlignment="Center"
+                     Padding="35,2"
+                     Foreground="Black"
+                     AcceptsReturn="True"
+                     TextWrapping="Wrap"/>
+            </Border>
+            
+            <!--TELEFONO-->
+            <Border CornerRadius="16" BorderBrush="#90FFFFFF" BorderThickness="0" Background="#E7E6E6" Margin="283,613,856,58">
+                <TextBox x:Name="TxtTelefono" IsReadOnly="True"
+                     FontSize="18"
+                     Background="Transparent"
+                     FontFamily="Poppins"
+                     BorderThickness="0"
+                     VerticalContentAlignment="Center"
+                     Padding="65,2"
+                     Foreground="Black"
+                     AcceptsReturn="True"
+                     TextWrapping="Wrap"/>
+            </Border>
+
+
+
+
+        </Grid>
+
+    </Viewbox>
+
 </Window>

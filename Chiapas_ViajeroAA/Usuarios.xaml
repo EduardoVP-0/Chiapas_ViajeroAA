@@ -48,11 +48,7 @@
                                 <Setter TargetName="bottomLine" Property="Fill" Value="{StaticResource ActiveTextBrush}"/>
                             </Trigger>
 
-                            <!-- Trigger para hover -->
-                            <Trigger Property="IsMouseOver" Value="True">
-                                <Setter Property="Foreground" Value="{StaticResource ActiveTextBrush}"/>
-                                <Setter TargetName="bottomLine" Property="Fill" Value="{StaticResource ActiveTextBrush}"/>
-                            </Trigger>
+                           
                         </ControlTemplate.Triggers>
                     </ControlTemplate>
                 </Setter.Value>
@@ -62,6 +58,16 @@
 
     <Viewbox Stretch="Fill">
         <Grid Width="1355" Height="710">
+
+            <Button Background="Transparent" BorderThickness="0" Cursor="Hand" Margin="1236,10,18,652" Click="BtnHome">
+                <Button.Template>
+                    <ControlTemplate TargetType="Button">
+                        <ContentPresenter/>
+                    </ControlTemplate>
+                </Button.Template>
+                <Image Source="Home.jpg" Stretch="Uniform"/>
+            </Button>
+
             <Label Content="TODOS LOS USUARIOS" FontSize="26" FontWeight="Bold" Margin="23,51,1022,606"/>
 
             <StackPanel Orientation="Horizontal" Margin="35,137,689,517">
@@ -94,11 +100,11 @@
                     <Style TargetType="DataGridColumnHeader">
                         <Setter Property="Background" Value="#455177"/>
                         <Setter Property="Foreground" Value="White"/>
-                        <Setter Property="FontSize" Value="16"/>
+                        <Setter Property="FontSize" Value="19"/>
                         <Setter Property="FontWeight" Value="Bold"/>
                         <Setter Property="Padding" Value="10,8"/>
                         <Setter Property="HorizontalContentAlignment" Value="Center"/>
-                        <Setter Property="Height" Value="35"/>
+                        <Setter Property="Height" Value="38"/>
                         <Setter Property="VerticalContentAlignment" Value="Center"/>
                         <Setter Property="BorderBrush" Value="#8D98A7"/>
                         <Setter Property="BorderThickness" Value="0,0,1,0"/>
@@ -126,7 +132,8 @@
                         <Setter Property="Background" Value="#FAFAFA"/>
                         <Setter Property="BorderBrush" Value="#8D98A7"/>
                         <Setter Property="BorderThickness" Value="0,0,0,1"/>
-                        <Setter Property="Height" Value="30"/>
+                        <Setter Property="FontSize" Value="16"/>
+                        <Setter Property="Height" Value="38"/>
                     </Style>
                 </DataGrid.RowStyle>
 

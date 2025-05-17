@@ -36,16 +36,34 @@ namespace Pagina_Principal
 
         private void Ver_Click(object sender, RoutedEventArgs e)
         {
-            var operadora = (VistaOperadora)miDataGrid.SelectedItem;
+            var operadoraVista = (VistaOperadora)miDataGrid.SelectedItem;
 
-            if (operadora != null)
+            if (operadoraVista != null)
             {
-                MessageBox.Show($"Datos de la operadora:\n\n" +
-                                $"Nombre: {operadora.NombreOperadora}\n" +
-                                $"Sitio Web: {operadora.SitioWeb}\n" +
-                                $"Dirección: {operadora.Direccion}\n" +
-                                $"Representante: {operadora.Representante}\n" +
-                                $"Email: {operadora.Email}");
+                // Crear un objeto OperadoraTuristica con los datos disponibles en VistaOperadora
+                OperadoraTuristica operadoraCompleta = new OperadoraTuristica
+                {
+                    Id = operadoraVista.id, // Asegúrate de que el nombre de la propiedad coincida
+                    NombreOperadora = operadoraVista.NombreOperadora,
+                    Representante = operadoraVista.Representante,
+                    Email = operadoraVista.Email,
+                    SitioWeb = operadoraVista.SitioWeb,
+                    Direccion = operadoraVista.Direccion,
+                    // Si hay campos en DetallesOperadora que no están en VistaOperadora, puedes dejarlos vacíos o asignar valores por defecto
+                    Descripcion = operadoraVista.Descripcion, // Si no está en VistaOperadora
+                    Identificacion = operadoraVista.Identificacion, // Si no está en VistaOperadora
+                    Lada = operadoraVista.Lada, // Si no está en VistaOperadora
+                    Telefono = operadoraVista.Telefono, // Si no está en VistaOperadora
+                    Logo = operadoraVista.Logo // Si no está en VistaOperadora
+                };
+
+                // Abrir la ventana DetallesOperadora con los datos
+                DetallesOperadora ventanaDetalles = new DetallesOperadora(operadoraCompleta);
+                ventanaDetalles.Show();
+            }
+            else
+            {
+                MessageBox.Show("Por favor, seleccione una operadora primero.");
             }
         }
 

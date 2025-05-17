@@ -320,7 +320,9 @@
   <ItemGroup>
     <Resource Include="img\Operadoras.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="Chiapas.jpg" />
+  </ItemGroup>
   <ItemGroup>
     <Resource Include="Home.jpg" />
   </ItemGroup>

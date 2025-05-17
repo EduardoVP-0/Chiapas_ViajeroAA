@@ -69,5 +69,14 @@ namespace Pagina_Principal
             _currentActiveButton = activeButton;
             _currentActiveButton.IsEnabled = false; // Deshabilitar para mantener el estilo
         }
+
+
+        private void BtnHome(object sender, RoutedEventArgs e)
+        {
+            Home ventanacasa = new Home();
+            ventanacasa.Show();
+
+            this.Close();
+        }
     }
 }

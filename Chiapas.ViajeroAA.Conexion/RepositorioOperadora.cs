@@ -23,7 +23,7 @@ namespace Chiapas.ViajeroAA.Conexion
 
             using (var conn = _conexion.ObtenerConexion())
             {
-                string query = "SELECT id, nombre_operadora, sitio_web, direccion, representante, email FROM operadora";
+                string query = "SELECT id, logo, nombre_operadora, sitio_web, descripcion, direccion, representante, lada, telefono, representante, email, identificacion FROM operadora";
 
                 using (var cmd = new MySqlCommand(query, conn))
                 using (var reader = cmd.ExecuteReader())
@@ -34,10 +34,15 @@ namespace Chiapas.ViajeroAA.Conexion
                         {
                             id = reader.GetInt32("id"),  // <-- Aquí se obtiene el ID
                             IdOperadora = reader.GetInt32("id"),
+                            Logo = reader.GetString("logo"),
                             NombreOperadora = reader.GetString("nombre_operadora"),
                             SitioWeb = reader.GetString("sitio_web"),
+                            Descripcion = reader.GetString("descripcion"),
+                            Lada = reader.GetString("lada"),
+                            Telefono = reader.GetString("telefono"),
                             Direccion = reader.GetString("direccion"),
                             Representante = reader.GetString("representante"),
+                            Identificacion = reader.GetString("identificacion"),
                             Email = reader.GetString("email")
                         });
                     }
@@ -180,11 +185,5 @@ namespace Chiapas.ViajeroAA.Conexion
 
             return logos;
         }
-
-
-
-
-
-
     }
 }
