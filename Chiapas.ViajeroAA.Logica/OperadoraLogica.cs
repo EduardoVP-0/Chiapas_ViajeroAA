@@ -20,7 +20,7 @@ namespace Chiapas.ViajeroAA.Logica
         public List<OperadoraTuristica> ObtenerOperadoras()
         {
             List<OperadoraTuristica> lista = new List<OperadoraTuristica>();
-            string query = "SELECT id, nombre_operadora, logo, representante, email, sitio_web FROM operadora";
+            string query = "SELECT id, logo, descripcion, direccion, nombre_operadora, sitio_web, representante, email, identificacion, lada, telefono FROM operadora";
 
             using (var conn = conexion.ObtenerConexion())
             using (var cmd = new MySqlCommand(query, conn))
@@ -31,14 +31,21 @@ namespace Chiapas.ViajeroAA.Logica
                     lista.Add(new OperadoraTuristica
                     {
                         Id = reader.GetInt32("id"),
-                        NombreOperadora = reader.GetString("nombre_operadora"),
                         Logo = reader.GetString("logo"),
+                        Descripcion = reader.GetString("descripcion"),
+                        Direccion = reader.GetString("direccion"),
+                        NombreOperadora = reader.GetString("nombre_operadora"),
+                        SitioWeb = reader.GetString("sitio_web"),
                         Representante = reader.GetString("representante"),
                         Email = reader.GetString("email"),
-                        SitioWeb = reader.GetString("sitio_web")
+                        Identificacion = reader.GetString("identificacion"),
+                        Lada = reader.GetString("lada"),
+                        Telefono = reader.GetString("telefono")
                     });
                 }
             }
+
+            
             return lista;
         }
     }

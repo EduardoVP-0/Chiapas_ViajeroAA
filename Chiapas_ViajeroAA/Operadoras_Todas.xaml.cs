@@ -48,25 +48,33 @@ namespace Pagina_Principal
                     LogoRuta = new Uri(rutaImagen, UriKind.Absolute),
                     Representante = item.Representante,
                     Email = item.Email,
-                    SitioWeb = item.SitioWeb
+                    SitioWeb = item.SitioWeb,
+                    OperadoraCompleta = item
                 });
             }
         }
 
         private void BtnVerMas_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("Funcionalidad Ver Más pendiente de implementar.");
+            var boton = sender as FrameworkElement;
+            if (boton?.DataContext is OperadoraUI operadora)
+            {
+                DetallesOperadora detalles = new DetallesOperadora(operadora.OperadoraCompleta);
+                detalles.Owner = this;
+                detalles.Show(); // No cierra la ventana actual
+            }
         }
-    }
 
-    public class OperadoraUI
-    {
-        public int Id { get; set; }
-        public string NombreOperadora { get; set; }
-        public Uri LogoRuta { get; set; }
-        public string Representante { get; set; }
-        public string Email { get; set; }
-        public string SitioWeb { get; set; }
+        public class OperadoraUI
+        {
+            public int Id { get; set; }
+            public string NombreOperadora { get; set; }
+            public Uri LogoRuta { get; set; }
+            public string Representante { get; set; }
+            public string Email { get; set; }
+            public string SitioWeb { get; set; }
+            public OperadoraTuristica OperadoraCompleta { get; set; } // Para ventana emergente
+        }
     }
 }
 

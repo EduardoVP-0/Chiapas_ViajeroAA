@@ -1,0 +1,43 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Data;
+using System.Windows.Documents;
+using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
+using System.Windows.Shapes;
+using Chiapas.ViajeroAA.Conexion;
+using System.IO;
+using Path = System.IO.Path;
+
+namespace Pagina_Principal
+{
+    /// <summary>
+    /// Lógica de interacción para DetallesOperadora.xaml
+    /// </summary>
+    public partial class DetallesOperadora : Window
+    {
+        public DetallesOperadora(OperadoraTuristica operadora)
+        {
+            InitializeComponent();
+            TxtId.Text = operadora.Id.ToString();
+            TxtNombre.Text = operadora.NombreOperadora;
+            TxtRepresentante.Text = operadora.Representante;
+            TxtEmail.Text = operadora.Email;
+            TxtSitioWeb.Text = operadora.SitioWeb;
+            TxtDescripcion.Text = operadora.Descripcion;
+            TxtDireccion.Text = operadora.Direccion;
+            TxtIdentificacion.Text = operadora.Identificacion;
+            TxtLada.Text = operadora.Lada;
+            TxtTelefono.Text = operadora.Telefono;
+
+            string rutaImagen = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Fotos", operadora.Logo);
+            ImgLogo.Source = new BitmapImage(new Uri(rutaImagen));
+        }
+    }
+}
