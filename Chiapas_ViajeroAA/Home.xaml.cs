@@ -172,6 +172,6 @@ namespace Pagina_Principal
             this.Hide(); // Cambia Close() por Hide()
         }
 
-        //Cambios
+        
     }
 }
