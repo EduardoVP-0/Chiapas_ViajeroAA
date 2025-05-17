@@ -173,5 +173,11 @@ namespace Pagina_Principal
         }
 
         
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            Operadoras_Todas ventanaOperadoras = new Operadoras_Todas();
+            ventanaOperadoras.Show();
+            this.Hide(); // Cambia Close() por Hide()
+        }
     }
 }

@@ -9,4 +9,59 @@
     <Grid>
         
     </Grid>
+    <ScrollViewer HorizontalScrollBarVisibility="Auto">
+        <Grid Margin="20">
+            <StackPanel Orientation="Vertical">
+                <TextBlock Text="OPERADORAS TURÍSTICAS" FontSize="24" FontWeight="Bold" Margin="0,0,0,20"/>
+
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+
+                    <!-- Encabezados -->
+                    <TextBlock Text="" FontWeight="Bold" Grid.Row="0"/>
+                    <TextBlock Text="" FontWeight="Bold" Grid.Row="1"/>
+                    <TextBlock Text="" FontWeight="Bold" Grid.Row="2"/>
+                    <TextBlock Text="" FontWeight="Bold" Grid.Row="3"/>
+                    <TextBlock Text="" FontWeight="Bold" Grid.Row="4"/>
+                    <TextBlock Text="" FontWeight="Bold" Grid.Row="5"/>
+                    <TextBlock Text="" FontWeight="Bold" Grid.Row="6"/>
+
+                    <!-- Datos -->
+                    <ItemsControl ItemsSource="{Binding Operadoras}">
+                        <ItemsControl.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <StackPanel Orientation="Horizontal"/>
+                            </ItemsPanelTemplate>
+                        </ItemsControl.ItemsPanel>
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Vertical" Margin="20,0">
+                                    <TextBlock Text="{Binding Id}" Grid.Row="0" Margin="5"/>
+                                    <TextBlock Text="{Binding NombreOperadora}" Grid.Row="1" Margin="5"/>
+
+                                    <!-- Imagen -->
+                                    <Image Source="{Binding LogoImagen}" Width="100" Height="100"/>
+
+                                    <TextBlock Text="{Binding Representante}" Grid.Row="3" Margin="5"/>
+                                    <TextBlock Text="{Binding Email}" Grid.Row="4" Margin="5"/>
+                                    <TextBlock Text="{Binding SitioWeb}" Grid.Row="5" Margin="5"/>
+
+                                    <!-- Botón -->
+                                    <Button Content="Ver Más" Width="80" Margin="5" Click="BtnVerMas_Click"/>
+                                </StackPanel>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+                </Grid>
+            </StackPanel>
+        </Grid>
+    </ScrollViewer>
 </Window>

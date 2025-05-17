@@ -24,4 +24,55 @@ namespace Pagina_Principal
             InitializeComponent();
         }
     }
+        private void CargarOperadoras()
+        {
+            Conexion conexion = new Conexion();
+            OperadoraLogica logica = new OperadoraLogica(conexion);
+            var lista = logica.ObtenerOperadoras();
+
+            Operadoras = new List<OperadoraUI>();
+            foreach (var item in lista)
+            {
+                string rutaImagen = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Fotos", item.Logo);
+                var imagen = new BitmapImage();
+                imagen.BeginInit();
+                imagen.UriSource = new Uri(rutaImagen, UriKind.Absolute);
+                imagen.CacheOption = BitmapCacheOption.OnLoad;
+                imagen.EndInit();
+
+                Operadoras.Add(new OperadoraUI
+                {
+                    Id = item.Id,
+                    NombreOperadora = item.NombreOperadora,
+                    LogoImagen = imagen,
+                    Representante = item.Representante,
+                    Email = item.Email,
+                    SitioWeb = item.SitioWeb,
+                    OperadoraCompleta = item
+                });
+            }
+        }
+
+        private void BtnVerMas_Click(object sender, RoutedEventArgs e)
+        {
+            var boton = sender as FrameworkElement;
+            if (boton?.DataContext is OperadoraUI operadora)
+            {
+                DetallesOperadora detalles = new DetallesOperadora(operadora.OperadoraCompleta);
+                detalles.Owner = this;
+                detalles.Show(); // No cierra la ventana actual
+            }
+        }
+
+        public class OperadoraUI
+        {
+            public int Id { get; set; }
+            public string NombreOperadora { get; set; }
+            public BitmapImage LogoImagen { get; set; }
+            public string Representante { get; set; }
+            public string Email { get; set; }
+            public string SitioWeb { get; set; }
+            public OperadoraTuristica OperadoraCompleta { get; set; } // Para ventana emergente
+        }
+    }
 }
