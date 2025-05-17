@@ -74,7 +74,7 @@
             </Button>
 
 
-            <Button Content="Estadísticas" HorizontalAlignment="Left" Margin="642,43,0,0" VerticalAlignment="Top" Width="165" FontFamily="Poppins" FontSize="23" FontWeight="Bold" Foreground="Black" Background="Transparent" BorderThickness="0" Height="36">
+            <Button Content="Estadísticas" HorizontalAlignment="Left" Margin="642,43,0,0" VerticalAlignment="Top" Width="165" FontFamily="Poppins" FontSize="23" FontWeight="Bold" Foreground="Black" Background="Transparent" BorderThickness="0" Height="36" Click="Button_Click_3">
                 <Button.Template>
                     <ControlTemplate TargetType="Button">
                         <Border x:Name="border" Background="Transparent" CornerRadius="20" BorderThickness="0">
