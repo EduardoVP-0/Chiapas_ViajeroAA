@@ -64,5 +64,13 @@ namespace Pagina_Principal
 
             DataContext = this;
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            Home ventanacasa = new Home();
+            ventanacasa.Show();
+
+            this.Close();
+        }
     }
 }
