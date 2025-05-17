@@ -1,0 +1,126 @@
+﻿<Window x:Class="Pagina_Principal.Perfil"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Pagina_Principal"
+        mc:Ignorable="d"
+        Background="#FAFAFA"
+        Title="Perfil">
+    <Viewbox Stretch="Fill">
+        <Grid Width="1355" Height="710">
+
+            <Label Content="P E R F I L" HorizontalAlignment="Left" Margin="33,37,0,0" 
+                VerticalAlignment="Top" Width="419" FontFamily="Poppins" FontSize="24" FontWeight="Bold" Height="36"/>
+
+            <!--Caja 1-->
+            <Border Margin="22,109,1028,34" Background="#FAFAFA" 
+                    BorderBrush="#CCCCCC" BorderThickness="1">
+                <Border.Effect>
+                    <DropShadowEffect ShadowDepth="0" Color="#CCCCCC" 
+                          Opacity="0.5" BlurRadius="10"/>
+                </Border.Effect>
+
+            </Border>
+
+            <!--Caja 2-->
+            <Border Margin="375,109,53,34" Background="#FAFAFA" 
+                    BorderBrush="#CCCCCC" BorderThickness="1">
+                <Border.Effect>
+                    <DropShadowEffect ShadowDepth="0" Color="#CCCCCC" 
+                          Opacity="0.5" BlurRadius="10"/>
+                </Border.Effect>
+
+            </Border>
+
+            <!--Contenido Caja 1-->
+
+            <Image Source="img/d9ad6a30-c08a-420b-86ec-91442116ce78.png" Margin="60,156,1070,406"/>
+            <Label Name="LblLogueado" Content="Liliana" HorizontalAlignment="Left" Margin="124,317,0,0" 
+                VerticalAlignment="Top" Width="100" FontFamily="Poppins" FontSize="26" FontWeight="Bold" Height="36"/>
+            <Label Content="Administrador" HorizontalAlignment="Left" Margin="104,358,0,0" 
+                VerticalAlignment="Top" Width="128" FontFamily="Poppins" FontSize="18" FontWeight="DemiBold" Height="36"/>
+            <Button Content="Editar datos"  FontFamily="Poppins" Margin="95,514,1105,159" Background="#455177" Foreground="White"   FontSize="16" BorderBrush="#2B334B">
+                <Button.Template>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}"  BorderThickness="1" CornerRadius="16">
+                            <ContentPresenter HorizontalAlignment="Center"  VerticalAlignment="Center" />
+                        </Border>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+            <Button Content="Comentarios"  FontFamily="Poppins" Margin="95,568,1105,105" Background="#505D89" Foreground="White"   FontSize="16" BorderBrush="#505D89">
+                <Button.Template>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}"  BorderThickness="1" CornerRadius="16">
+                            <ContentPresenter HorizontalAlignment="Center"  VerticalAlignment="Center" />
+                        </Border>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+            
+            
+            <!--Contenido Caja 2-->
+            <Label Content="Nombre" HorizontalAlignment="Left" Margin="424,138,0,0" 
+                VerticalAlignment="Top" Width="128" FontFamily="Poppins" FontSize="26" FontWeight="DemiBold" Height="36"/>
+
+            <Border BorderBrush="#ABADB3" BorderThickness="1" Margin="414,195,535,470">
+                <TextBox Text="Liliana"
+                     FontSize="20"
+                     FontFamily="Poppins"
+                     BorderThickness="0"
+                     VerticalContentAlignment="Center"
+                     Padding="23,2"
+                     Foreground="Black"/>
+            </Border>
+
+            <Label Content="Apellido" HorizontalAlignment="Left" Margin="880,138,0,0" 
+                VerticalAlignment="Top" Width="128" FontFamily="Poppins" FontSize="26" FontWeight="DemiBold" Height="36"/>
+
+            <Border BorderBrush="#ABADB3" BorderThickness="1" Margin="861,194,88,470">
+                <!-- Margen actualizado -->
+                <TextBox Text="Torres" FontSize="20" FontFamily="Poppins" BorderThickness="0" VerticalContentAlignment="Center" Padding="23,2" Foreground="Black" />
+                <!-- Fondo transparente para que no cubra el Border -->
+            </Border>
+
+            <Label Content="Número de celular" HorizontalAlignment="Left" Margin="424,268,0,0" 
+                VerticalAlignment="Top" Width="262" FontFamily="Poppins" FontSize="26" FontWeight="DemiBold" Height="36"/>
+            <TextBox Margin="414,325,859,339" Text="961" FontFamily="Poppins" FontSize="20" BorderThickness="1" BorderBrush="#ABADB3" VerticalContentAlignment="Center" Padding="23,2" Foreground="Black" Background="White"/>
+            <TextBox Margin="517,325,535,339" Text="843  5651" FontFamily="Poppins" FontSize="20" BorderThickness="1" BorderBrush="#ABADB3" VerticalContentAlignment="Center"  Padding="23,2" Foreground="Black" Background="White"/>
+
+            <Label Content="Correo electrónico" HorizontalAlignment="Left" Margin="880,268,0,0" 
+                VerticalAlignment="Top" Width="262" FontFamily="Poppins" FontSize="26" FontWeight="DemiBold" Height="36"/>
+            <TextBox Name="LblCorreo" Margin="861,325,88,339" Text="liliana.torres24@example.com"
+         FontFamily="Poppins"
+         FontSize="20"
+         BorderThickness="1"
+                BorderBrush="#ABADB3"
+                VerticalContentAlignment="Center"
+         Padding="23,2"
+         Foreground="Black"
+         Background="White"/>
+
+            <Label Content="Ciudad" HorizontalAlignment="Left" Margin="424,409,0,0" 
+                VerticalAlignment="Top" Width="262" FontFamily="Poppins" FontSize="26" FontWeight="DemiBold" Height="36"/>
+            <TextBox Margin="414,462,535,202" FontFamily="Poppins" FontSize="20" BorderBrush="#ABADB3"  
+                BorderThickness="1" VerticalContentAlignment="Center" HorizontalContentAlignment="Left" Padding="15,5" Foreground="Black" Background="White"  CaretBrush="#333333" Text="Coahuila"/>
+
+            <Label Content="Estado" HorizontalAlignment="Left" Margin="880,409,0,0" 
+                VerticalAlignment="Top" Width="262" FontFamily="Poppins" FontSize="26" FontWeight="DemiBold" Height="36"/>
+            <TextBox  Margin="861,462,88,202" FontFamily="Poppins" FontSize="20" BorderBrush="#ABADB3" BorderThickness="1" VerticalContentAlignment="Center" HorizontalContentAlignment="Left" Padding="15,5" Foreground="Black" Background="White" CaretBrush="#333333" Text="San Isidro del Monte"/>
+
+            <Label Content="Postal" HorizontalAlignment="Left" Margin="424,540,0,0" 
+                VerticalAlignment="Top" Width="262" FontFamily="Poppins" FontSize="26" FontWeight="DemiBold" Height="36"/>
+            <TextBox  Margin="414,604,535,60" FontFamily="Poppins" FontSize="20" BorderBrush="#ABADB3" BorderThickness="1" VerticalContentAlignment="Center" HorizontalContentAlignment="Left" Padding="15,5" Foreground="Black" Background="White" CaretBrush="#333333" Text="25489"/>
+
+            <Label Content="Estado" HorizontalAlignment="Left" Margin="880,540,0,0" 
+                VerticalAlignment="Top" Width="262" FontFamily="Poppins" FontSize="26" FontWeight="DemiBold" Height="36"/>
+            <TextBox  Margin="861,604,88,60" FontFamily="Poppins" FontSize="20" BorderBrush="#ABADB3" BorderThickness="1" VerticalContentAlignment="Center" HorizontalContentAlignment="Left" Padding="15,5" Foreground="#333333" Background="White" CaretBrush="#333333" Text="México"/>
+
+
+        </Grid>
+
+    </Viewbox>
+
+
+</Window>
