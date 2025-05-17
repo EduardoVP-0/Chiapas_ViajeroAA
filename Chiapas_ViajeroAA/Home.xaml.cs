@@ -171,5 +171,7 @@ namespace Pagina_Principal
             ventanaUsuarios.Show();
             this.Hide(); // Cambia Close() por Hide()
         }
+
+        //Cambios
     }
 }
