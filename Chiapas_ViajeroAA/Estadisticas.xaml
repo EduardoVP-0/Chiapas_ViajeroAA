@@ -28,7 +28,7 @@
             <Image Source="Home.jpg" Stretch="UniformToFill"/>
         </Button>
         <StackPanel VerticalAlignment="Center">
-            <TextBlock Text="Estadísticas Generales" FontSize="30" FontWeight="Bold" Margin="0 0 0 120"
+            <TextBlock Text="Estadísticas Generales" FontSize="30" FontWeight="Bold" Margin="0 0 0 200"
                            HorizontalAlignment="Center"/>
 
             <UniformGrid Columns="6" Rows="1" Margin="0 0 0 20">
