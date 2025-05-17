@@ -97,7 +97,7 @@
 
             <!--PERFIL-->
             <Border CornerRadius="16" Background="#80E7E6E6" Margin="1034,37,141,615">
-                <Button Background="Transparent" BorderThickness="0" Padding="10" HorizontalContentAlignment="Left" Cursor="Hand">
+                <Button Background="Transparent" BorderThickness="0" Padding="10" HorizontalContentAlignment="Left" Cursor="Hand" Click="Btn_Perfil">
                     <Button.Template>
                         <ControlTemplate TargetType="Button">
                             <ContentPresenter/>
@@ -160,7 +160,7 @@
             </Border>
 
             <!--Ver todas las operadoras-->
-            <Button Content="Ver todas"  FontFamily="Poppins" Margin="1205,504,10,180" Background="#505D89" Foreground="White"   FontSize="16" BorderBrush="#505D89" Click="Button_Click_1">
+            <Button Content="Ver todas"  FontFamily="Poppins" Margin="1205,504,10,180" Background="#505D89" Foreground="White"   FontSize="16" BorderBrush="#505D89" >
                 <Button.Template>
                     <ControlTemplate TargetType="Button">
                         <Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}"  BorderThickness="1" CornerRadius="16">

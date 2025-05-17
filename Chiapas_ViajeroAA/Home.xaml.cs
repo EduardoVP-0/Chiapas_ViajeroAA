@@ -105,6 +105,12 @@ namespace Pagina_Principal
             this.Close();
         }
 
+        private void Btn_Perfil(object sender, RoutedEventArgs e)
+        {
+            Perfil VentanaPerfil = new Perfil();
+            VentanaPerfil.Show();
+        }
+
         // Modifica el método Btn_Registros en Home.xaml.cs para que quede así:
         private void Btn_Registros(object sender, RoutedEventArgs e)
         {
@@ -163,14 +169,7 @@ namespace Pagina_Principal
         {
             Usuarios ventanaUsuarios = new Usuarios();
             ventanaUsuarios.Show();
-            this.Close(); // Cambia Close() por Hide()
-        }
-
-        private void Button_Click_1(object sender, RoutedEventArgs e)
-        {
-            Operadoras_Todas ventanaOperadoras = new Operadoras_Todas();
-            ventanaOperadoras.Show();
-            this.Close(); // Cambia Close() por Hide()
+            this.Hide(); // Cambia Close() por Hide()
         }
     }
 }
