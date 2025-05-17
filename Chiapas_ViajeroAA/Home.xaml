@@ -160,7 +160,7 @@
             </Border>
 
             <!--Ver todas las operadoras-->
-            <Button Content="Ver todas"  FontFamily="Poppins" Margin="1205,504,10,180" Background="#505D89" Foreground="White"   FontSize="16" BorderBrush="#505D89" >
+            <Button Content="Ver todas"  FontFamily="Poppins" Margin="1205,504,10,180" Background="#505D89" Foreground="White"   FontSize="16" BorderBrush="#505D89" Click="Button_Click_2" >
                 <Button.Template>
                     <ControlTemplate TargetType="Button">
                         <Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}"  BorderThickness="1" CornerRadius="16">

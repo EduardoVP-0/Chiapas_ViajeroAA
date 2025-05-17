@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,6 +12,9 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using Chiapas.ViajeroAA.Conexion;
+using Chiapas.ViajeroAA.Logica;
+using Path = System.IO.Path;
 
 namespace Pagina_Principal
 {
@@ -19,11 +23,13 @@ namespace Pagina_Principal
     /// </summary>
     public partial class Operadoras_Todas : Window
     {
+        public List<OperadoraUI> Operadoras { get; set; }
         public Operadoras_Todas()
         {
             InitializeComponent();
+            CargarOperadoras();
+            DataContext = this;
         }
-    }
         private void CargarOperadoras()
         {
             Conexion conexion = new Conexion();

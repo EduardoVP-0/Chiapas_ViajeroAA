@@ -6,9 +6,6 @@
         xmlns:local="clr-namespace:Pagina_Principal"
         mc:Ignorable="d"
         Title="Operadoras_Todas" Height="450" Width="800">
-    <Grid>
-        
-    </Grid>
     <ScrollViewer HorizontalScrollBarVisibility="Auto">
         <Grid Margin="20">
             <StackPanel Orientation="Vertical">
