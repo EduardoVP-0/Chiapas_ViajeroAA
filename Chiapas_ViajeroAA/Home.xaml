@@ -97,7 +97,7 @@
 
             <!--PERFIL-->
             <Border CornerRadius="16" Background="#80E7E6E6" Margin="1034,37,141,615">
-                <Button Background="Transparent" BorderThickness="0" Padding="10" HorizontalContentAlignment="Left" Cursor="Hand">
+                <Button Background="Transparent" BorderThickness="0" Padding="10" HorizontalContentAlignment="Left" Cursor="Hand" Click="Btn_Perfil">
                     <Button.Template>
                         <ControlTemplate TargetType="Button">
                             <ContentPresenter/>

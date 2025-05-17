@@ -165,5 +165,11 @@ namespace Pagina_Principal
             ventanaUsuarios.Show();
             this.Hide(); // Cambia Close() por Hide()
         }
+
+        private void Btn_Perfil(object sender, RoutedEventArgs e)
+        {
+            Perfil ventanaperfil = new Perfil();
+            ventanaperfil.Show();
+        }
     }
 }
