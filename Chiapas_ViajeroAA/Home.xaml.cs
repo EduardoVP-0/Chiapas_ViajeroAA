@@ -186,5 +186,12 @@ namespace Pagina_Principal
             ventanaOperadoras.Show();
             this.Hide(); // Cambia Close() por Hide()
         }
+
+        private void Button_Click_3(object sender, RoutedEventArgs e)
+        {
+            Estadisticas ventanaEstadisticas = new Estadisticas();
+            ventanaEstadisticas.Show();
+            this.Close(); // Cambia Close() por Hide()
+        }
     }
 }
