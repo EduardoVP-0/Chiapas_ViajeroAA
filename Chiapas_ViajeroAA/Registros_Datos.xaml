@@ -10,7 +10,7 @@
         <Grid Width="1355" Height="710">
             <!-- Aquí diseñas como si fuera fijo, y Viewbox lo escala -->
             <Button Content="←" Background="#FF505D89" Foreground="White" BorderBrush="#FF505D89" FontSize="30" 
-                    FontWeight="Bold" HorizontalAlignment="Left" Margin="1298,16,0,0" VerticalAlignment="Top" 
+                    FontWeight="Bold" HorizontalAlignment="Left" Margin="1281,22,0,0" VerticalAlignment="Top" 
                     Width="43" Height="34" Click="BtnRegresar">
                 <Button.Template>
                     <ControlTemplate TargetType="Button">

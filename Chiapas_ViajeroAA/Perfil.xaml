@@ -35,12 +35,12 @@
 
             <!--Contenido Caja 1-->
 
-            <Image Source="img/d9ad6a30-c08a-420b-86ec-91442116ce78.png" Margin="60,156,1070,406"/>
-            <Label Name="LblLogueado" Content="Liliana" HorizontalAlignment="Left" Margin="124,317,0,0" 
+            <Image Source="Administrador2.png" Margin="52,206,1078,356"/>
+            <Label Name="LblLogueado" Content="Liliana" HorizontalAlignment="Left" Margin="118,368,0,0" 
                 VerticalAlignment="Top" Width="100" FontFamily="Poppins" FontSize="26" FontWeight="Bold" Height="36"/>
-            <Label Content="Administrador" HorizontalAlignment="Left" Margin="104,358,0,0" 
+            <Label Content="Administrador" HorizontalAlignment="Left" Margin="100,409,0,0" 
                 VerticalAlignment="Top" Width="128" FontFamily="Poppins" FontSize="18" FontWeight="DemiBold" Height="36"/>
-            <Button Content="Editar datos"  FontFamily="Poppins" Margin="95,514,1105,159" Background="#455177" Foreground="White"   FontSize="16" BorderBrush="#2B334B">
+            <Button Content="Editar datos"  FontFamily="Poppins" Margin="84,480,1105,184" Background="#455177" Foreground="White"   FontSize="16" BorderBrush="#2B334B">
                 <Button.Template>
                     <ControlTemplate TargetType="Button">
                         <Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}"  BorderThickness="1" CornerRadius="16">
@@ -49,7 +49,7 @@
                     </ControlTemplate>
                 </Button.Template>
             </Button>
-            <Button Content="Comentarios"  FontFamily="Poppins" Margin="95,568,1105,105" Background="#505D89" Foreground="White"   FontSize="16" BorderBrush="#505D89">
+            <Button Content="Comentarios"  FontFamily="Poppins" Margin="84,540,1105,126" Background="#505D89" Foreground="White"   FontSize="16" BorderBrush="#505D89">
                 <Button.Template>
                     <ControlTemplate TargetType="Button">
                         <Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}"  BorderThickness="1" CornerRadius="16">

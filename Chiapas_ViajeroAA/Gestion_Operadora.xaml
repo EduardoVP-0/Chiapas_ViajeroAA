@@ -13,7 +13,7 @@
     <Viewbox Stretch="Fill">
         <Grid Width="1355" Height="710">
 
-            <Button Background="Transparent" BorderThickness="0" Cursor="Hand" Margin="1236,10,18,652" Click="BtnHome">
+            <Button Background="Transparent" BorderThickness="0" Cursor="Hand" Margin="1224,22,30,640" Click="BtnHome">
                 <Button.Template>
                     <ControlTemplate TargetType="Button">
                         <ContentPresenter/>

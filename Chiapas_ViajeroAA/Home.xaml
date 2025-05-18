@@ -130,19 +130,19 @@
 
                 <!-- SECCIÓN RANKING -->
                 <Border CornerRadius="22" BorderBrush="#FFFFFF" BorderThickness="0" 
-                        Background="#30E7E6E6" Margin="10,124,892,227" ClipToBounds="True">
+                        Background="#30E7E6E6" Margin="46,124,892,227" ClipToBounds="True">
                     <Image Source="img/Ranking.png" Stretch="Fill"/>
                 </Border>
 
                 <!-- SECCIÓN COMENTARIOS -->
                 <Border CornerRadius="22" BorderBrush="#FFFFFF" BorderThickness="0" 
-                        Background="#30E7E6E6" Margin="10,497,892,10" ClipToBounds="True">
+                        Background="#30E7E6E6" Margin="46,497,892,10" ClipToBounds="True">
                     <Image Source="img/Comentarios.png" Stretch="Fill"/>
                 </Border>
 
                 <!-- CARRUSEL -->
                 <!-- **CARRUSEL DE IMÁGENES** -->
-                <Grid ClipToBounds="True" Margin="510,124,10,211">
+                <Grid ClipToBounds="True" Margin="477,124,43,227">
                     <Border BorderBrush="#FFFFFF" BorderThickness="0" CornerRadius="15" Background="#30E7E6E6">
                         <Image Name="CarruselImage" Stretch="Fill" Opacity="0"/>
                     </Border>
@@ -153,19 +153,19 @@
                        VerticalAlignment="Top" Width="419" FontFamily="Poppins" FontSize="24" FontWeight="DemiBold" Height="36"/>
 
                 <!-- TARJETAS DE OPERADORAS (COMPLETAS) -->
-                <Border BorderBrush="#FFFFFF" BorderThickness="0" CornerRadius="15" Background="#99E7E6E6" Margin="477,553,651,29">
+                <Border BorderBrush="#FFFFFF" BorderThickness="0" CornerRadius="15" Background="#00E7E6E6" Margin="477,553,651,29">
                     <Image Name="Image1" Stretch="Fill" Opacity="1" Margin="0,0,10,10"/>
                 </Border>
 
-                <Border BorderBrush="#FFFFFF" BorderThickness="0" CornerRadius="15" Background="#99E7E6E6" Margin="709,553,431,29">
+                <Border BorderBrush="#FFFFFF" BorderThickness="0" CornerRadius="15" Background="#00E7E6E6" Margin="709,553,431,29">
                     <Image Name="Image2" Stretch="Fill" Opacity="1" Margin="0,0,10,10"/>
                 </Border>
 
-                <Border BorderBrush="#FFFFFF" BorderThickness="0" CornerRadius="15" Background="#99E7E6E6" Margin="929,553,210,29">
+                <Border BorderBrush="#FFFFFF" BorderThickness="0" CornerRadius="15" Background="#00E7E6E6" Margin="929,553,210,29">
                     <Image Name="Image3" Stretch="Fill" Opacity="1" Margin="0,0,10,10"/>
                 </Border>
 
-                <Border BorderBrush="#FFFFFF" BorderThickness="0" CornerRadius="15" Background="#99E7E6E6" Margin="1150,553,10,29">
+                <Border BorderBrush="#FFFFFF" BorderThickness="0" CornerRadius="15" Background="#00E7E6E6" Margin="1150,553,10,29">
                     <Image Name="Image4" Stretch="Fill" Opacity="1" Margin="0,0,10,10"/>
                 </Border>
 

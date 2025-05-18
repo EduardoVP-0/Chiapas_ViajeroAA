@@ -92,6 +92,8 @@ namespace Chiapas.ViajeroAA.Conexion
         }
 
 
+
+
         //CONSULTA PARA HACER EL UPDATE DE LOS REGISTROS
         public bool ActualizarOperadora(int id, string logo, string nombre, string sitio, string descripcion,
                                 string direccion, string lada, string telefono, string representante,
