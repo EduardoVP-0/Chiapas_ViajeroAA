@@ -31,7 +31,7 @@
 
             <TextBox x:Name="TxtIdOperadora" IsReadOnly="True" Visibility="Collapsed" Margin="416,28,839,644" />
 
-            <Label Content="Editar Regristro de Operadora" HorizontalAlignment="Left" Margin="721,42,0,0" 
+            <Label Content="Editar Registro de Operadora" HorizontalAlignment="Left" Margin="721,42,0,0" 
                    VerticalAlignment="Top" Width="378" FontFamily="Poppins" FontSize="26" FontWeight="Bold"/>
 
             <Button Content="1" Background="#FF505D89" Foreground="White" BorderBrush="#FF505D89" FontSize="18" 
