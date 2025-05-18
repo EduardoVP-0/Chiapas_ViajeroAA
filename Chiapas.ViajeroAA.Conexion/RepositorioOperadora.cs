@@ -94,8 +94,8 @@ namespace Chiapas.ViajeroAA.Conexion
 
         //CONSULTA PARA HACER EL UPDATE DE LOS REGISTROS
         public bool ActualizarOperadora(int id, string logo, string nombre, string sitio, string descripcion,
-                                string direccion, string lada, string telefono, string representante,
-                                string correo, string identificacion)
+                        string direccion, string lada, string telefono, string representante,
+                        string correo, string identificacion)
         {
             Conexion conexion = new Conexion();
 
@@ -103,31 +103,49 @@ namespace Chiapas.ViajeroAA.Conexion
             {
                 try
                 {
-                    // Validaciones de longitud
-                    logo = string.IsNullOrWhiteSpace(logo) ? "" : logo.Trim().Substring(0, Math.Min(logo.Length, 255));
-                    nombre = string.IsNullOrWhiteSpace(nombre) ? "" : nombre.Trim().Substring(0, Math.Min(nombre.Length, 50));
-                    sitio = string.IsNullOrWhiteSpace(sitio) ? "" : sitio.Trim().Substring(0, Math.Min(sitio.Length, 150));
-                    descripcion = string.IsNullOrWhiteSpace(descripcion) ? "" : descripcion.Trim(); // TEXT no tiene límite
-                    direccion = string.IsNullOrWhiteSpace(direccion) ? "" : direccion.Trim().Substring(0, Math.Min(direccion.Length, 255));
-                    lada = string.IsNullOrWhiteSpace(lada) ? "" : lada.Trim().Substring(0, Math.Min(lada.Length, 5));
-                    telefono = string.IsNullOrWhiteSpace(telefono) ? "" : telefono.Trim().Substring(0, Math.Min(telefono.Length, 10));
-                    representante = string.IsNullOrWhiteSpace(representante) ? "" : representante.Trim().Substring(0, Math.Min(representante.Length, 50));
-                    correo = string.IsNullOrWhiteSpace(correo) ? "" : correo.Trim().Substring(0, Math.Min(correo.Length, 50));
-                    identificacion = string.IsNullOrWhiteSpace(identificacion) ? "" : identificacion.Trim().Substring(0, Math.Min(identificacion.Length, 5));
+                    // Validaciones de longitud (manejo seguro de Substring)
+                    logo = string.IsNullOrWhiteSpace(logo) ? "" : logo.Trim();
+                    logo = logo.Length > 255 ? logo.Substring(0, 255) : logo;
 
-                    // IMPORTANTE: corregir el nombre del campo de ID si es diferente
+                    nombre = string.IsNullOrWhiteSpace(nombre) ? "" : nombre.Trim();
+                    nombre = nombre.Length > 50 ? nombre.Substring(0, 50) : nombre;
+
+                    sitio = string.IsNullOrWhiteSpace(sitio) ? "" : sitio.Trim();
+                    sitio = sitio.Length > 150 ? sitio.Substring(0, 150) : sitio;
+
+                    descripcion = string.IsNullOrWhiteSpace(descripcion) ? "" : descripcion.Trim(); // TEXT no tiene límite
+
+                    direccion = string.IsNullOrWhiteSpace(direccion) ? "" : direccion.Trim();
+                    direccion = direccion.Length > 255 ? direccion.Substring(0, 255) : direccion;
+
+                    lada = string.IsNullOrWhiteSpace(lada) ? "" : lada.Trim();
+                    lada = lada.Length > 5 ? lada.Substring(0, 5) : lada;
+
+                    telefono = string.IsNullOrWhiteSpace(telefono) ? "" : telefono.Trim();
+                    telefono = telefono.Length > 10 ? telefono.Substring(0, 10) : telefono;
+
+                    representante = string.IsNullOrWhiteSpace(representante) ? "" : representante.Trim();
+                    representante = representante.Length > 50 ? representante.Substring(0, 50) : representante;
+
+                    correo = string.IsNullOrWhiteSpace(correo) ? "" : correo.Trim();
+                    correo = correo.Length > 50 ? correo.Substring(0, 50) : correo;
+
+                    identificacion = string.IsNullOrWhiteSpace(identificacion) ? "" : identificacion.Trim();
+                    identificacion = identificacion.Length > 5 ? identificacion.Substring(0, 5) : identificacion;
+
+                    // Consulta SQL
                     string query = @"UPDATE operadora SET 
-                                logo = @logo,
-                                nombre_operadora = @nombre,
-                                sitio_web = @sitio,
-                                descripcion = @descripcion,
-                                direccion = @direccion,
-                                lada = @lada,
-                                telefono = @telefono,
-                                representante = @representante,
-                                email = @correo,
-                                identificacion = @identificacion
-                             WHERE id = @id";  // <-- Asegúrate de que el campo se llame "id" y no "id_operadora"
+                        logo = @logo,
+                        nombre_operadora = @nombre,
+                        sitio_web = @sitio,
+                        descripcion = @descripcion,
+                        direccion = @direccion,
+                        lada = @lada,
+                        telefono = @telefono,
+                        representante = @representante,
+                        email = @correo,
+                        identificacion = @identificacion
+                     WHERE id = @id";
 
                     using (MySqlCommand cmd = new MySqlCommand(query, conn))
                     {
