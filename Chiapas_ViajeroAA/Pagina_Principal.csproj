@@ -191,6 +191,9 @@
     <Compile Include="Perfil.xaml.cs">
       <DependentUpon>Perfil.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Perfil2.xaml.cs">
+      <DependentUpon>Perfil2.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
@@ -283,6 +286,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Perfil.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Perfil2.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -380,6 +387,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="RankingVacio.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="ADMIN4.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -97,8 +97,17 @@ namespace Pagina_Principal
                 App.UsuarioLogueado = datosUsuario.Nombre;
                 App.NombreArchivoFoto = datosUsuario.NombreArchivoFoto;
 
-                Home2 ventana = new Home2();
-                ventana.Show();
+                // Condición para Liliana Torres
+                if (email == "liliana.torres24@gmail.com")
+                {
+                    Home ventana = new Home();
+                    ventana.Show();
+                }
+                else
+                {
+                    Home2 ventana = new Home2();
+                    ventana.Show();
+                }
                 this.Close();
             }
             else

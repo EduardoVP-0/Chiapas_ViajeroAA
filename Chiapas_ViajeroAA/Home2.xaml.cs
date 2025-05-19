@@ -112,7 +112,7 @@ namespace Pagina_Principal
 
         private void Btn_Perfil(object sender, RoutedEventArgs e)
         {
-            Perfil VentanaPerfil = new Perfil();
+            Perfil2 VentanaPerfil = new Perfil2();
             VentanaPerfil.Show();
         }
 
