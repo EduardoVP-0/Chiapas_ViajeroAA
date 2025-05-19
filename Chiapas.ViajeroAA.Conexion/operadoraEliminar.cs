@@ -25,7 +25,6 @@ namespace Chiapas.ViajeroAA.Conexion
             {
                 try
                 {
-                    
                     string query = "DELETE FROM operadora WHERE id = @IdOperadora";
                     using (MySqlCommand cmd = new MySqlCommand(query, conn))
                     {
@@ -34,13 +33,24 @@ namespace Chiapas.ViajeroAA.Conexion
                         resultado = filasAfectadas > 0;
                     }
                 }
-                catch (Exception ex)
+                catch (MySqlException ex)
                 {
-                    throw new Exception("Error al eliminar la operadora: " + ex.Message);
+                    // 1451 es el código de error de MySQL para violación de clave foránea
+                    if (ex.Number == 1451)
+                    {
+                        // No lanzar la excepción, solo regresar false
+                        return false;
+                    }
+                    else
+                    {
+                        // Otros errores sí los lanzamos
+                        throw new Exception("Error al eliminar la operadora: " + ex.Message);
+                    }
                 }
             }
 
             return resultado;
         }
+
     }
 }

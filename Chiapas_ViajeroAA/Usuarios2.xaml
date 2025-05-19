@@ -73,9 +73,7 @@
             <Label Content="TODOS LOS USUARIOS" FontSize="26" FontWeight="Bold" Margin="23,51,1022,606"/>
 
             <StackPanel Orientation="Horizontal" Margin="35,137,689,517">
-                <Button x:Name="BtnAdministradores" Content="Administradores" 
-            Width="188" Margin="5,8" Click="BtnAdministradores_Click"
-            Style="{StaticResource NavButtonStyle}" Height="30" FontSize="24"/>
+                
 
                 <Button x:Name="BtnAgentes" Content="Agentes de Viajes" 
             Width="207" Margin="5,8" Click="BtnAgentes_Click"

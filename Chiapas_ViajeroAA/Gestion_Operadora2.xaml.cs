@@ -119,7 +119,12 @@ namespace Pagina_Principal
                 }
                 else
                 {
-                    MessageBox.Show("No se pudo eliminar la operadora.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                    MessageBox.Show(
+                        "No se puede eliminar esta operadora porque tiene reservaciones asociadas.\n" +
+                        "Primero elimina o reasigna esas reservaciones antes de continuar.",
+                        "Operación no permitida",
+                        MessageBoxButton.OK,
+                        MessageBoxImage.Warning);
                 }
             }
         }
