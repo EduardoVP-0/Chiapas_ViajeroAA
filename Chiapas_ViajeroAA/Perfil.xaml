@@ -90,7 +90,7 @@
 
             <Label Content="Correo electrónico" HorizontalAlignment="Left" Margin="880,268,0,0" 
                 VerticalAlignment="Top" Width="262" FontFamily="Poppins" FontSize="26" FontWeight="DemiBold" Height="36"/>
-            <TextBox Name="LblCorreo" Margin="861,325,88,339" Text="liliana.torres24@example.com"
+            <TextBox Name="LblCorreo" Margin="861,325,88,339" Text="liliana.torres24@gmail.com"
          FontFamily="Poppins"
          FontSize="20"
          BorderThickness="1"
