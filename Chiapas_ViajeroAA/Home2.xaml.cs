@@ -10,10 +10,11 @@ using Chiapas_ViajeroAA;
 namespace Pagina_Principal
 {
     /// <summary>
-    /// Lógica de interacción para Home.xaml
+    /// Lógica de interacción para Home2.xaml
     /// </summary>
-    public partial class Home : Window
+    public partial class Home2 : Window
     {
+
         private List<string> imagenes = new List<string>
         {
             "Banner1.png",
@@ -23,15 +24,16 @@ namespace Pagina_Principal
         private int indice = 0;
         private DispatcherTimer temporizador;
 
-        public Home()
+        public Home2()
         {
             InitializeComponent();
             Logueado.Content = App.UsuarioLogueado; //Donde aparece el logueado
             CargarImagenUsuario();
             IniciarCarrusel();
             MostrarUltimos4Logos();
-
         }
+
+        //Logueado
 
         //Imagen del Usuario
         private void CargarImagenUsuario()
@@ -68,6 +70,8 @@ namespace Pagina_Principal
             Logueado.Content = App.UsuarioLogueado;
         }
 
+
+        //Carrusel de las imagenes 
         private void IniciarCarrusel()
         {
             temporizador = new DispatcherTimer();
@@ -98,12 +102,12 @@ namespace Pagina_Principal
             }
         }
 
-        private void BtnSalir(object sender, RoutedEventArgs e)
+        //Boton de registros
+        private void Btn_Registros(object sender, RoutedEventArgs e)
         {
-            MainWindow VentanaSalir = new MainWindow();
-            VentanaSalir.Show();
-
-            this.Close();
+            Gestion_Operadora2 ventanaRegistro = new Gestion_Operadora2();
+            ventanaRegistro.Show();
+            this.Hide(); // Cambia Close() por Hide()
         }
 
         private void Btn_Perfil(object sender, RoutedEventArgs e)
@@ -112,20 +116,52 @@ namespace Pagina_Principal
             VentanaPerfil.Show();
         }
 
-        // Modifica el método Btn_Registros en Home.xaml.cs para que quede así:
-        private void Btn_Registros(object sender, RoutedEventArgs e)
+        //ventana Usuario
+        private void Button_Click(object sender, RoutedEventArgs e)
         {
-            Gestion_Operadora ventanaRegistro = new Gestion_Operadora();
-            ventanaRegistro.Show();
+            Usuarios2 ventanaUsuarios = new Usuarios2();
+            ventanaUsuarios.Show();
             this.Hide(); // Cambia Close() por Hide()
         }
+
+        //Ventana Todas las Operadoras
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            Operadoras_Todas2 ventanaOperadoras = new Operadoras_Todas2();
+            ventanaOperadoras.Show();
+            this.Hide(); // Cambia Close() por Hide()
+        }
+
+        private void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+            Operadoras_Todas2 ventanaOperadoras = new Operadoras_Todas2();
+            ventanaOperadoras.Show();
+            this.Hide(); // Cambia Close() por Hide()
+        }
+
+        private void Button_Click_3(object sender, RoutedEventArgs e)
+        {
+            Estadisticas2 ventanaEstadisticas = new Estadisticas2();
+            ventanaEstadisticas.Show();
+            this.Close(); // Cambia Close() por Hide()
+        }
+
+        //Boton Salir (Inicio Sesión)
+        private void BtnSalir(object sender, RoutedEventArgs e)
+        {
+            MainWindow VentanaSalir = new MainWindow();
+            VentanaSalir.Show();
+
+            this.Close();
+        }
+
 
         //Mostrar las 4 ULtimas Fotos de las operadoras
         private void MostrarUltimos4Logos()
         {
             try
             {
-                var repo = new Chiapas.ViajeroAA.Conexion.RepositorioOperadora();
+                var repo = new Chiapas.ViajeroAA.Conexion.RepositorioOperadora2();
                 var logos = repo.ObtenerUltimos4Logos();
 
                 // Ruta base donde se almacenan las imágenes
@@ -166,34 +202,5 @@ namespace Pagina_Principal
             }
         }
 
-        //ventana Usuario
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            Usuarios ventanaUsuarios = new Usuarios();
-            ventanaUsuarios.Show();
-            this.Hide(); // Cambia Close() por Hide()
-        }
-
-        //Ventana Todas las Operadoras
-        private void Button_Click_1(object sender, RoutedEventArgs e)
-        {
-            Operadoras_Todas ventanaOperadoras = new Operadoras_Todas();
-            ventanaOperadoras.Show();
-            this.Hide(); // Cambia Close() por Hide()
-        }
-
-        private void Button_Click_2(object sender, RoutedEventArgs e)
-        {
-            Operadoras_Todas ventanaOperadoras = new Operadoras_Todas();
-            ventanaOperadoras.Show();
-            this.Hide(); // Cambia Close() por Hide()
-        }
-
-        private void Button_Click_3(object sender, RoutedEventArgs e)
-        {
-            Estadisticas ventanaEstadisticas = new Estadisticas();
-            ventanaEstadisticas.Show();
-            this.Close(); // Cambia Close() por Hide()
-        }
     }
 }

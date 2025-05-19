@@ -1,0 +1,180 @@
+﻿<Window x:Class="Pagina_Principal.Gestion_Operadora2"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Pagina_Principal"
+        mc:Ignorable="d"
+        Title="Gestion_Operadora2" WindowState="Maximized" 
+        WindowStartupLocation="CenterScreen"
+        Background="#FAFAFA">
+
+    <Viewbox Stretch="Fill">
+        <Grid Width="1355" Height="710">
+
+            <Button Background="Transparent" BorderThickness="0" Cursor="Hand" Margin="1224,22,30,640" Click="BtnHome">
+                <Button.Template>
+                    <ControlTemplate TargetType="Button">
+                        <ContentPresenter/>
+                    </ControlTemplate>
+                </Button.Template>
+                <Image Source="Home.jpg" Stretch="Uniform"/>
+            </Button>
+
+            <Label Content="GESTIÓN DE OPERADORAS" HorizontalAlignment="Left" Margin="495,67,0,0" 
+                   VerticalAlignment="Top" Width="351" FontFamily="Poppins" FontSize="26" FontWeight="Bold" RenderTransformOrigin="-0.003,1.393"/>
+
+
+            <!--DATAGRID PARA MOSTRAR DATOS-->
+            <DataGrid x:Name="miDataGrid" 
+          IsReadOnly="True" 
+          AutoGenerateColumns="False" 
+          HeadersVisibility="Column" 
+          GridLinesVisibility="All" 
+          Background="White" 
+          BorderBrush="#8D98A7" 
+          BorderThickness="1" 
+          Grid.Row="0" 
+          Margin="55,166,55,202" 
+          FontFamily="Poppins" 
+          FontSize="14" 
+          RowBackground="White" 
+          HorizontalGridLinesBrush="#8D98A7" 
+          VerticalGridLinesBrush="#8D98A7" 
+          ColumnHeaderHeight="40" 
+          RowHeight="40" 
+          SelectionMode="Single" 
+          SelectionUnit="FullRow">
+
+                <DataGrid.ColumnHeaderStyle>
+                    <Style TargetType="DataGridColumnHeader">
+                        <Setter Property="Background" Value="#455177"/>
+                        <Setter Property="Foreground" Value="White"/>
+                        <Setter Property="FontWeight" Value="DemiBold"/>
+                        <Setter Property="FontFamily" Value="Poppins"/>
+                        <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                        <Setter Property="BorderBrush" Value="#8D98A7"/>
+                        <Setter Property="BorderThickness" Value="0,0,1,1"/>
+                        <Setter Property="FontSize" Value="14"/>
+                    </Style>
+                </DataGrid.ColumnHeaderStyle>
+
+                <DataGrid.Resources>
+                    <!-- Estilo para la fila seleccionada -->
+                    <Style TargetType="DataGridRow">
+                        <Style.Triggers>
+                            <!-- Cambio de color cuando la fila está seleccionada -->
+                            <Trigger Property="IsSelected" Value="True">
+                                <Setter Property="Background" Value="#B6D0E0"/>
+                                <!-- Color de fondo de la fila seleccionada -->
+                                <Setter Property="Foreground" Value="White"/>
+                                <!-- Color de texto cuando está seleccionada -->
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </DataGrid.Resources>
+
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="IdOperadora" Binding="{Binding IdOperadora}" Visibility="Collapsed" Width="0"/>
+                    <DataGridTextColumn Header="Nombre" Binding="{Binding NombreOperadora}" Width="2*"/>
+                    <DataGridTextColumn Header="Sitio Web" Binding="{Binding SitioWeb}" Width="2*"/>
+                    <DataGridTextColumn Header="Dirección" Binding="{Binding Direccion}" Width="3*"/>
+                    <DataGridTextColumn Header="Representante" Binding="{Binding Representante}" Width="2*"/>
+                    <DataGridTextColumn Header="Email" Binding="{Binding Email}" Width="2*"/>
+                    <DataGridTemplateColumn Header="Acciones" Width="1.5*">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Button Content="Ver"
+                            Click="Ver_Click"
+                            FontFamily="Poppins"
+                            Background="#83002060"
+                            Foreground="White"
+                            Padding="15,10"
+                            Margin="15,5"
+                            BorderBrush="#83002060"
+                            Cursor="Hand">
+                                    <Button.Template>
+                                        <ControlTemplate TargetType="Button">
+                                            <Border Background="{TemplateBinding Background}" 
+                                        BorderBrush="{TemplateBinding BorderBrush}" 
+                                        BorderThickness="1" 
+                                        CornerRadius="10">
+                                                <ContentPresenter HorizontalAlignment="Center" 
+                                                      VerticalAlignment="Center" />
+                                            </Border>
+                                        </ControlTemplate>
+                                    </Button.Template>
+                                </Button>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                </DataGrid.Columns>
+            </DataGrid>
+
+
+
+
+            <!--BOTON PARA AGREGAR OPERADORA-->
+            <Button Name="BtnAgregar"
+                Content="Agregar" 
+                FontFamily="Poppins"  
+                Margin="55,574,1025,87"  
+                Background="#198754" 
+                Foreground="White" 
+                FontSize="22" 
+                BorderBrush="#198754" 
+                Click="BtnAgregarOperadora"
+                >
+                <Button.Template>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}" 
+                    BorderBrush="{TemplateBinding BorderBrush}" 
+                    BorderThickness="1" 
+                    CornerRadius="16">
+                            <ContentPresenter HorizontalAlignment="Center" 
+                                  VerticalAlignment="Center" />
+                        </Border>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+
+            <!--BOTON PARA EDITAR OPERADORA-->
+            <Button Name="BtnEditarr" Content="Editar" FontFamily="Poppins"  Margin="384,574,696,87" Background="#ffc107" Foreground="White" FontSize="22" BorderBrush="#ffc107" Click="BtnEditar">
+                <Button.Template>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}" 
+                    BorderBrush="{TemplateBinding BorderBrush}" 
+                    BorderThickness="1" 
+                    CornerRadius="16">
+                            <ContentPresenter HorizontalAlignment="Center" 
+                                  VerticalAlignment="Center" />
+                        </Border>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+
+            <!--BOTON PARA ELIMINAR OPERADORA-->
+            <Button Name="BtnEliminar"
+                Content="Eliminar" 
+                FontFamily="Poppins"  
+                Margin="1025,574,55,87"  
+                Background="#dc3545" 
+                Foreground="White" 
+                FontSize="22" 
+                BorderBrush="#dc3545" Click="BtnEliminar_Click" 
+                >
+                <Button.Template>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}" 
+                    BorderBrush="{TemplateBinding BorderBrush}" 
+                    BorderThickness="1" 
+                    CornerRadius="16">
+                            <ContentPresenter HorizontalAlignment="Center" 
+                                  VerticalAlignment="Center" />
+                        </Border>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+        </Grid>
+    </Viewbox>
+</Window>
