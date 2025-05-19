@@ -97,7 +97,7 @@ namespace Pagina_Principal
                 App.UsuarioLogueado = datosUsuario.Nombre;
                 App.NombreArchivoFoto = datosUsuario.NombreArchivoFoto;
 
-                Home ventana = new Home();
+                Home2 ventana = new Home2();
                 ventana.Show();
                 this.Close();
             }

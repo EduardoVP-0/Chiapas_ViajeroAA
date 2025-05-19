@@ -1,12 +1,11 @@
-﻿<Window x:Class="Pagina_Principal.Home"
+﻿<Window x:Class="Pagina_Principal.Home2"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Pagina_Principal"
         mc:Ignorable="d"
-        Title="Home" 
-        WindowState="Maximized" 
+        Title="Home2" WindowState="Maximized" 
         WindowStartupLocation="CenterScreen"
         ResizeMode="CanResize">
 
@@ -131,7 +130,7 @@
                 <!-- SECCIÓN RANKING -->
                 <Border CornerRadius="22" BorderBrush="#FFFFFF" BorderThickness="0" 
                         Background="#30E7E6E6" Margin="46,124,892,227" ClipToBounds="True">
-                    <Image Source="img/Ranking.png" Stretch="Fill"/>
+                    <Image Source="RankingVacio.jpg" Stretch="Fill"/>
                 </Border>
 
                 <!-- SECCIÓN COMENTARIOS -->
