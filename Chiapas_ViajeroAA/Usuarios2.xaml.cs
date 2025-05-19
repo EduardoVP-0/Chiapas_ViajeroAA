@@ -30,16 +30,11 @@ namespace Pagina_Principal
             logica = new UsuarioLogica(conexion);
 
             // Establecer botón inicial activo
-            BtnAdministradores.IsEnabled = false;
-            _currentActiveButton = BtnAdministradores;
-            BtnAdministradores_Click(null, null);
+            BtnAgentes.IsEnabled = false;
+            _currentActiveButton = BtnAgentes;
+            BtnAgentes_Click(null, null);
         }
-        private void BtnAdministradores_Click(object sender, RoutedEventArgs e)
-        {
-            SetActiveButton(BtnAdministradores);
-            List<VistaUsuarios> lista = logica.ObtenerAdministradores();
-            dgUsuarios.ItemsSource = lista;
-        }
+        
 
         private void BtnAgentes_Click(object sender, RoutedEventArgs e)
         {
